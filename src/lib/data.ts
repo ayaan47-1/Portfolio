@@ -1,7 +1,7 @@
-import type { PersonalInfo, Project } from './types';
+import type { PersonalInfo, Project, WorkExperience } from './types';
 
 export const personalInfo: PersonalInfo = {
-	name: 'Ayaan Ahmed Khan',
+	name: 'Ayaan Khan',
 	title: 'AI Engineer / Applied ML',
 	location: 'Chicago, IL',
 	email: 'ayaanahmedkhan12@gmail.com',
@@ -53,4 +53,28 @@ export const systemsThinking: string[] = [
 	'Structured outputs + validation',
 	'Latency/cost tradeoffs + caching',
 	'Observability + failure modes'
+];
+
+export const workExperience: WorkExperience[] = [
+	{
+		company: 'The Syntec Group',
+		position: 'AI & Digital Development Intern',
+		location: 'Chicago, Illinois',
+		period: 'May 2025 – Present',
+		bullets: [
+			'Working under the President of the firm, managing social media outlets by creating and publishing professional content posted weekly.',
+			'Built an RAG chatbot ingesting numerous internal docs, delivering cited, context grounded answers.',
+			'Leading a website redesign, improving navigation, categorization, and overall user experience to streamline access to firm resources alongside analyzing engagement metrics to optimize post performance and leveraging AI powered tools for content creation and trend analysis.',
+			'Improved overall LinkedIn impressions by 122% and bimonthly by 25% towards 400+ new followers.'
+		]
+	},
+	{
+		company: 'Excelerate (Globalshala)',
+		position: 'Project Manager',
+		location: 'New Delhi, India',
+		period: 'June 2023 – July 2023',
+		bullets: [
+			'Organized a live global event focusing on team creation, documentation, tasked thinking in a collaborative environment surrounding academia for the organization, considering risk management, and outsourcing to our audience with an approved budget of $30,000.'
+		]
+	}
 ];

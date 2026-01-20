@@ -14,3 +14,11 @@ export interface Project {
 	bullets: [string, string];
 	tech: string;
 }
+
+export interface WorkExperience {
+	company: string;
+	position: string;
+	location: string;
+	period: string;
+	bullets: string[];
+}
