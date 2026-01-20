@@ -87,7 +87,7 @@
 
 <!-- Separator -->
 <div class="max-w-4xl mx-auto px-6 md:px-8 py-8">
-	<div class="h-px bg-gradient-to-r from-transparent via-accent to-transparent opacity-30"></div>
+	<div class="h-px bg-gradient-to-r from-transparent via-accent to-transparent opacity-80 shadow-[0_0_10px_theme('colors.accent')]"></div>
 </div>
 
 <!-- Projects Section -->
