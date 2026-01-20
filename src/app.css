@@ -1,0 +1,36 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+	body {
+		@apply bg-background text-text-primary font-sans;
+		@apply antialiased;
+	}
+
+	/* Focus styles for accessibility */
+	*:focus-visible {
+		@apply outline-none ring-2 ring-accent ring-offset-2 ring-offset-background;
+	}
+}
+
+@layer utilities {
+	/* Subtle hover lift effect */
+	.hover-lift {
+		@apply transition-transform duration-200 ease-in-out;
+	}
+
+	.hover-lift:hover {
+		@apply -translate-y-1;
+	}
+
+	/* Link utility with accent underline on hover */
+	.link {
+		@apply transition-colors duration-200;
+		@apply underline decoration-transparent underline-offset-2;
+	}
+
+	.link:hover {
+		@apply decoration-accent;
+	}
+}
