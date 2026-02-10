@@ -14,6 +14,7 @@ export const personalInfo: PersonalInfo = {
 export const projects: Project[] = [
 	{
 		name: 'Clutch',
+		link: 'https://staging.clutch.courses/',
 		status: 'staging',
 		bullets: [
 			'Turns vague learning goals into structured, research-backed courses via a multi-stage AI pipeline; orchestrates 5 agents using Inngest with retries.',

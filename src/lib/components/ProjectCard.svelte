@@ -10,7 +10,13 @@
 
 <article class="bg-surface card-glow rounded-lg p-6 md:p-7 slide-up group">
 	<h3 class="font-futura text-xl md:text-2xl font-semibold text-text-primary mb-3 group-hover:text-accent-glow transition-colors duration-300">
-		{project.name}
+		{#if project.link}
+			<a href={project.link} target="_blank" rel="noopener noreferrer" class="hover:underline">
+				{project.name}
+			</a>
+		{:else}
+			{project.name}
+		{/if}
 		{#if project.status}
 			<span class="text-sm text-accent ml-2 font-mono">({project.status})</span>
 		{/if}

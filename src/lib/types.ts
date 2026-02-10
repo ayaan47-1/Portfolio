@@ -10,6 +10,7 @@ export interface PersonalInfo {
 
 export interface Project {
 	name: string;
+	link?: string;
 	status?: string;
 	bullets: [string, string];
 	tech: string;
