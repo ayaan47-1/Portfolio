@@ -11,7 +11,7 @@
 <article class="bg-surface card-glow rounded-lg p-6 md:p-7 slide-up group">
 	<h3 class="font-futura text-xl md:text-2xl font-semibold text-text-primary mb-3 group-hover:text-accent-glow transition-colors duration-300">
 		{#if project.link}
-			<a href={project.link} target="_blank" rel="noopener noreferrer" class="hover:underline">
+			<a href={project.link} target="_blank" rel="noopener noreferrer" class="underline decoration-accent/30 decoration-1 underline-offset-4 hover:decoration-accent/60 transition-colors">
 				{project.name}
 			</a>
 		{:else}
