@@ -44,6 +44,14 @@ export const projects: Project[] = [
 			'Multivariate regression analysis of correlated commodity markets; time-series cross validation.'
 		],
 		tech: 'Python, Prophet, Pandas, Matplotlib'
+	},
+	{
+		name: 'Sports and Metrics Tracker',
+		bullets: [
+			'Built an end-to-end soccer video analysis pipeline using YOLOv8 detection and ByteTrack tracking, adding temporal smoothing for stable motion analytics and CPU only local processing with robust cross-platform video input and output.',
+			'Developed export and visualization tooling, including CSV and JSON metrics with track filtering (minimum 15 frames), heatmap rendering with percentile transforms, and tiered error handling with debug mode progress reporting.'
+		],
+		tech: 'Python, YOLOv8, ByteTrack, OpenCV'
 	}
 ];
 
