@@ -10,7 +10,28 @@ export const personalInfo: PersonalInfo = {
 	github: 'https://github.com/ayaan47-1',
 	linkedin: 'https://www.linkedin.com/in/ayaanahmedkhan/',
 	aboutMe:
-		"I'm an AI Engineer focused on building production-grade systems — retrieval pipelines, agents, and real-time inference. When I'm not shipping, I'm probably reading about distributed systems or listening to music."
+		"I'm an AI Engineer focused on building production-grade systems — retrieval pipelines, agents, and real-time inference. When I'm not shipping, I'm probably reading about distributed systems or listening to music.",
+	motivation: '',
+	education: {
+		university: 'Illinois Institute of Technology',
+		degree: 'B.S. in Artificial Intelligence',
+		minor: 'Minor in Architecture',
+		year: 'Expected May 2026',
+		relevantCoursework: [
+			'DSA',
+			'AI',
+			'ML',
+			'NLP',
+			'DBMS',
+			'Assembly',
+			'Data Mining',
+			'Discrete Math',
+			'Linear Algebra',
+			'Probability',
+			'Statistics',
+			'OOP'
+		]
+	}
 };
 
 export const projects: Project[] = [
@@ -83,12 +104,22 @@ export const workExperience: WorkExperience[] = [
 		]
 	},
 	{
+		company: 'Volunteers.Covihelp',
+		position: 'Co-Founder',
+		location: 'Remote (India)',
+		period: 'May 2021 – July 2021',
+		link: 'https://volunteerscovihelp.org/',
+		bullets: [
+			'Created and managed a 24/7 helpline during India’s second COVID wave, connecting thousands of patients with critical resources like oxygen, beds, and medicines.'
+		]
+	},
+	{
 		company: 'Excelerate (Globalshala)',
 		position: 'Project Manager',
 		location: 'New Delhi, India',
 		period: 'June 2023 – July 2023',
 		bullets: [
-			'Organized a live global event focusing on team creation, documentation, tasked thinking in a collaborative environment surrounding academia for the organization, considering risk management, and outsourcing to our audience with an approved budget of $30,000.'
+			'Led a global team to organize an academic event with a $30,000 budget, managing documentation, risk assessment, and external outsourcing.'
 		]
 	}
 ];
@@ -123,5 +154,5 @@ export const nowBuilding: NowBuilding[] = [
 
 export const nowUsing: NowUsing = {
 	hardware: ['MacBook Pro M4 Pro', 'iPhone 17 Pro', 'Samsung Z Fold 7'],
-	software: ['VS Code', 'Claude Code', 'Codex', 'Gemini', 'Ghostty']
+	software: ['VS Code', 'Claude Code', 'Codex', 'Gemini', 'Ghostty', 'GarageBand']
 };

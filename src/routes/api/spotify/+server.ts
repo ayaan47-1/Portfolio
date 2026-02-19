@@ -24,8 +24,9 @@ export async function GET() {
     try {
         const accessToken = await getAccessToken();
 
-        const response = await fetch(
-            'https://api.spotify.com/v1/me/player/recently-played?limit=1',
+        // 1. Try fetching 'currently-playing' for real-time status
+        const currentResponse = await fetch(
+            'https://api.spotify.com/v1/me/player/currently-playing',
             {
                 headers: {
                     Authorization: `Bearer ${accessToken}`
@@ -33,25 +34,47 @@ export async function GET() {
             }
         );
 
-        if (!response.ok) {
-            return json(null);
+        let track;
+        let playedAt = new Date().toISOString(); // Default to 'now' for current track
+
+        if (currentResponse.ok && currentResponse.status !== 204) {
+            const data = await currentResponse.json();
+            // Check if it's a track (episode type might differ)
+            if (data.item && data.item.type === 'track') {
+                track = data.item;
+            }
         }
 
-        const data = await response.json();
-        const item = data?.items?.[0];
+        // 2. Fallback to 'recently-played' if nothing is currently playing
+        if (!track) {
+            const recentResponse = await fetch(
+                'https://api.spotify.com/v1/me/player/recently-played?limit=1',
+                {
+                    headers: {
+                        Authorization: `Bearer ${accessToken}`
+                    }
+                }
+            );
 
-        if (!item) {
-            return json(null);
+            if (recentResponse.ok) {
+                const data = await recentResponse.json();
+                if (data.items && data.items.length > 0) {
+                    track = data.items[0].track;
+                    playedAt = data.items[0].played_at;
+                }
+            }
         }
 
-        const track = item.track;
+        if (!track) {
+            return json(null);
+        }
 
         return json({
             name: track.name,
             artist: track.artists.map((a: { name: string }) => a.name).join(', '),
             albumArt: track.album.images[0]?.url ?? null,
             url: track.external_urls.spotify,
-            playedAt: item.played_at
+            playedAt: playedAt
         });
     } catch {
         return json(null);

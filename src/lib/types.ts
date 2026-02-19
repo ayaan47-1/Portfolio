@@ -6,7 +6,15 @@ export interface PersonalInfo {
 	valueLine: string;
 	github: string;
 	linkedin: string;
-	aboutMe?: string;
+	aboutMe: string;
+	motivation?: string;
+	education?: {
+		university: string;
+		degree: string;
+		minor?: string;
+		year: string;
+		relevantCoursework?: string[];
+	};
 }
 
 export interface Project {
@@ -24,6 +32,7 @@ export interface WorkExperience {
 	location: string;
 	period: string;
 	bullets: string[];
+	link?: string;
 }
 
 export interface NowWatching {
