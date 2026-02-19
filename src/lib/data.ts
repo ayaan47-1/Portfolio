@@ -2,15 +2,15 @@ import type { PersonalInfo, Project, WorkExperience, NowWatching, NowBuilding, N
 
 export const personalInfo: PersonalInfo = {
 	name: 'Ayaan Khan',
-	title: 'AI Engineer / Applied ML',
+	title: 'Applied AI & ML',
 	location: 'Chicago, IL',
 	email: 'ayaanahmedkhan12@gmail.com',
 	valueLine:
-		'I build production-grade AI systems: retrieval, agents, pipelines, and real-time inference.',
+		'AI engineer and backend developer building production LLM systems, including retrieval augmented generation, semantic search, and multi-stage agent workflows.',
 	github: 'https://github.com/ayaan47-1',
 	linkedin: 'https://www.linkedin.com/in/ayaanahmedkhan/',
 	aboutMe:
-		"I'm an AI Engineer focused on building production-grade systems — retrieval pipelines, agents, and real-time inference. When I'm not shipping, I'm probably reading about distributed systems or listening to music.",
+		'AI engineer and backend developer building production LLM systems, including retrieval augmented generation, semantic search, and multi-stage agent workflows. Experienced with asynchronous APIs, vector databases, Redis caching, job orchestration with retries, real-time streaming, and observability.',
 	motivation: '',
 	education: {
 		university: 'Illinois Institute of Technology',
@@ -41,8 +41,9 @@ export const projects: Project[] = [
 		glowColor: '#00ff00',
 		status: 'staging',
 		bullets: [
-			'Turns vague learning goals into structured, research-backed courses via a multi-stage AI pipeline; orchestrates 5 agents using Inngest with retries.',
-			'Async FastAPI backend + Postgres (pgvector) + Redis; real-time progress streaming via WebSocket/Redis + SSE; cost optimization via LiteLLM routing and source deduplication.'
+			'Built a staging-deployed SaaS that generates research-backed courses using a multi-stage agent pipeline, orchestrating 5 stages with persisted job state, retry policies, and failure isolation to keep long-running workflows reliable.',
+			'Implemented an asynchronous FastAPI backend with PostgreSQL plus pgvector and Redis caching, and streamed real-time job progress to clients using SSE backed by Redis to keep generation workflows responsive.',
+			'Cut inference cost and improved output quality using LiteLLM routing and shared source deduplication; enforced structured outputs with PydanticAI validation and added observability via Sentry and PostHog.'
 		],
 		tech: 'FastAPI, Postgres/pgvector, Redis, Inngest, SvelteKit, LiteLLM, PydanticAI, Docker, Sentry, PostHog'
 	},
@@ -51,8 +52,9 @@ export const projects: Project[] = [
 		link: 'https://build.syntecgroup.com/',
 		status: 'deployed',
 		bullets: [
-			'Semantic search chatbot across PDFs/blog/site with automated citations and context-aware responses.',
-			'React UI + Flask API + WordPress integration + scraping + Redis caching + Docker deployment; built for internal and client use.'
+			'Shipped a semantic search and retrieval augmented chatbot using GPT-4o and ChromaDB embeddings to deliver question answering across PDF documents, CSVs, blog posts, and website content with automated source citations.',
+			'Built an agentic system using OpenAI function calling that enables authorized users to read, write, and modify mastercode, unicode, and omnicode entries through natural language, with role-based access controls and confirmation flows for destructive operations.',
+			'Containerized the service with Docker Compose for consistent deployments, implemented a dual-LLM fallback strategy for cost optimization, and added security controls including input sanitization, rate limiting, and CORS restrictions.'
 		],
 		tech: 'React, Flask, ChromaDB, Redis, Docker, WordPress'
 	},
@@ -97,10 +99,10 @@ export const workExperience: WorkExperience[] = [
 		location: 'Chicago, Illinois',
 		period: 'May 2025 – Present',
 		bullets: [
-			'Working under the President of the firm, managing social media outlets by creating and publishing professional content posted weekly.',
-			'Built an RAG chatbot ingesting numerous internal docs, delivering cited, context grounded answers.',
-			'Leading a website redesign, improving navigation, categorization, and overall user experience to streamline access to firm resources alongside analyzing engagement metrics to optimize post performance and leveraging AI powered tools for content creation and trend analysis.',
-			'Improved overall LinkedIn impressions by 122% and bimonthly by 25% towards 400+ new followers.'
+			'Built and deployed a semantic RAG chatbot on Chatbase over firm documents, delivering cited, context-grounded answers to reduce lookup time and improve response consistency.',
+			'Developed an internal agentic system using OpenAI function calling to manage building module codes through natural language, with confirmation flows for destructive operations and ChromaDB sync for semantic search.',
+			'Implemented ingestion and retrieval workflow (chunking, embeddings, indexing) across PDFs, CSVs, website pages, and WordPress blog posts, with embedding caching via Redis that reduced inference cost by approximately 65%.',
+			'Led an information architecture plus website redesign improving navigation and access to resources; used engagement analysis to iterate content performance.'
 		]
 	},
 	{

@@ -22,7 +22,7 @@ export interface Project {
 	link?: string;
 	glowColor?: string;
 	status?: string;
-	bullets: [string, string];
+	bullets: string[];
 	tech: string;
 }
 
