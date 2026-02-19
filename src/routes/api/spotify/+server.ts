@@ -35,18 +35,20 @@ export async function GET() {
         );
 
         let track;
-        let playedAt = new Date().toISOString(); // Default to 'now' for current track
+        let isPlaying = false;
+        let playedAt = new Date().toISOString();
 
         if (currentResponse.ok && currentResponse.status !== 204) {
             const data = await currentResponse.json();
-            // Check if it's a track (episode type might differ)
             if (data.item && data.item.type === 'track') {
                 track = data.item;
+                isPlaying = data.is_playing === true;
             }
         }
 
         // 2. Fallback to 'recently-played' if nothing is currently playing
         if (!track) {
+            isPlaying = false;
             const recentResponse = await fetch(
                 'https://api.spotify.com/v1/me/player/recently-played?limit=1',
                 {
@@ -74,7 +76,8 @@ export async function GET() {
             artist: track.artists.map((a: { name: string }) => a.name).join(', '),
             albumArt: track.album.images[0]?.url ?? null,
             url: track.external_urls.spotify,
-            playedAt: playedAt
+            isPlaying,
+            playedAt
         });
     } catch {
         return json(null);
