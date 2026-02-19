@@ -8,11 +8,11 @@
 	const { project }: Props = $props();
 
 	const glowStyle = $derived(
-		project.glowColor ? `text-shadow: 0 0 10px rgba(0, 255, 0, 0.5), 0 0 20px rgba(0, 255, 0, 0.3);` : ''
+		project.glowColor ? `text-shadow: 0 0 10px rgb(var(--color-accent-channels) / 0.5), 0 0 20px rgb(var(--color-accent-channels) / 0.3);` : ''
 	);
 </script>
 
-<article class="bg-surface card-glow rounded-lg p-6 md:p-7 slide-up group">
+<article class="card-glow rounded-lg p-6 md:p-7 slide-up group backdrop-blur-sm text-text-primary" style="background-color: rgb(var(--color-surface-channels) / 0.8);">
 	<h3 class="font-futura text-xl md:text-2xl font-semibold text-text-primary mb-3 group-hover:text-accent-glow transition-colors duration-300">
 		{#if project.link}
 			<a
@@ -45,6 +45,6 @@
 
 <style>
 	.project-glow:hover {
-		text-shadow: 0 0 15px rgba(0, 255, 0, 0.8), 0 0 25px rgba(0, 255, 0, 0.5), 0 0 35px rgba(0, 255, 0, 0.3);
+		text-shadow: 0 0 15px rgb(var(--color-accent-channels) / 0.8), 0 0 25px rgb(var(--color-accent-channels) / 0.5), 0 0 35px rgb(var(--color-accent-channels) / 0.3);
 	}
 </style>

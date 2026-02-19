@@ -4,16 +4,16 @@ export default {
 	theme: {
 		extend: {
 			colors: {
-				background: '#0a0a0a',
-				surface: '#111111',
-				border: '#222222',
-				'text-primary': '#e5e5e5',
-				'text-secondary': '#a3a3a3',
-				'text-muted': '#737373',
-				accent: '#22c55e', // Brighter, more vibrant green
-				'accent-hover': '#16a34a', // Rich green
-				'accent-glow': '#4ade80', // Vivid light green
-				'accent-muted': '#15803d' // Deeper green
+				background: 'var(--color-background)',
+				surface: 'rgb(var(--color-surface-channels) / <alpha-value>)',
+				border: 'rgb(var(--color-border-channels) / <alpha-value>)',
+				'text-primary': 'var(--color-text-primary)',
+				'text-secondary': 'var(--color-text-secondary)',
+				'text-muted': 'var(--color-text-muted)',
+				accent: 'rgb(var(--color-accent-channels) / <alpha-value>)',
+				'accent-hover': 'var(--color-accent-hover)',
+				'accent-glow': 'var(--color-accent-glow)',
+				'accent-muted': 'var(--color-accent-muted)'
 			},
 			fontFamily: {
 				futura: ['Futura', 'Futura PT', 'Trebuchet MS', 'Arial', 'sans-serif'],
@@ -23,7 +23,7 @@ export default {
 			animation: {
 				'fade-in': 'fadeIn 0.6s ease-out forwards',
 				'slide-up': 'slideUp 0.5s ease-out forwards',
-				'glow': 'glow 2s ease-in-out infinite'
+				glow: 'glow 2s ease-in-out infinite'
 			},
 			keyframes: {
 				fadeIn: {

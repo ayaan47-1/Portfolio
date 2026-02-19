@@ -2,7 +2,9 @@
 	import Section from '$lib/components/Section.svelte';
 	import ProjectCard from '$lib/components/ProjectCard.svelte';
 	import ExperienceCard from '$lib/components/ExperienceCard.svelte';
-	import { personalInfo, projects, workExperience, systemsThinking } from '$lib/data';
+	import NowCards from '$lib/components/NowCards.svelte';
+	import Navbar from '$lib/components/Navbar.svelte'; // Import Navbar
+	import { personalInfo, projects, workExperience, systemsThinking, nowWatching, nowBuilding, nowUsing } from '$lib/data';
 
 	const { data } = $props();
 </script>
@@ -25,20 +27,22 @@
 	<meta name="twitter:image" content={data.meta.ogImage} />
 </svelte:head>
 
+<!-- Floating Navbar -->
+<Navbar />
+
 <!-- Hero Section -->
-<section class="pt-20 pb-16 md:pt-24 md:pb-20">
+<section id="home" class="pt-16 pb-8 md:pt-20 md:pb-12">
 	<div class="mx-auto max-w-4xl px-6 md:px-8">
 		<h1 class="font-futura text-5xl md:text-7xl font-bold mb-4 gradient-text">
 			{personalInfo.name}
 		</h1>
-		<p class="text-2xl md:text-3xl text-white font-futura font-medium mb-6">
+		<p class="text-2xl md:text-3xl text-text-primary font-futura font-medium mb-2">
 			{personalInfo.title}
 		</p>
-		<p class="text-lg md:text-xl text-text-secondary mb-8 max-w-3xl leading-relaxed">
+		<p class="text-base md:text-lg text-text-secondary mb-4 max-w-2xl leading-relaxed">
 			{personalInfo.valueLine}
 		</p>
-
-		<div class="space-y-3 text-text-secondary mb-8">
+		<div class="space-y-3 text-text-secondary mt-6 mb-6">
 			<p class="flex items-center gap-3 text-base">
 				<span class="text-xl">📍</span>
 				<span>{personalInfo.location}</span>
@@ -51,7 +55,7 @@
 			</p>
 		</div>
 
-		<div class="flex flex-wrap gap-6 text-base font-medium">
+		<div class="flex flex-wrap gap-6 text-base font-medium mb-8">
 			<a
 				href={personalInfo.github}
 				target="_blank"
@@ -82,11 +86,13 @@
 				Resume
 			</a>
 		</div>
+
+		<NowCards watching={nowWatching} building={nowBuilding} using={nowUsing} />
 	</div>
 </section>
 
 <!-- Separator -->
-<div class="max-w-4xl mx-auto px-6 md:px-8 py-8">
+<div class="max-w-4xl mx-auto px-6 md:px-8 py-4">
 	<div class="h-px bg-gradient-to-r from-transparent via-accent to-transparent opacity-80 shadow-[0_0_10px_theme('colors.accent')]"></div>
 </div>
 
@@ -133,3 +139,4 @@
 		<p class="mt-2 font-mono">Built with <span class="text-accent">SvelteKit</span></p>
 	</div>
 </footer>
+

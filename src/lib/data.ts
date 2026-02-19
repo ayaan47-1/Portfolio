@@ -1,4 +1,4 @@
-import type { PersonalInfo, Project, WorkExperience } from './types';
+import type { PersonalInfo, Project, WorkExperience, NowWatching, NowBuilding, NowUsing } from './types';
 
 export const personalInfo: PersonalInfo = {
 	name: 'Ayaan Khan',
@@ -8,7 +8,9 @@ export const personalInfo: PersonalInfo = {
 	valueLine:
 		'I build production-grade AI systems: retrieval, agents, pipelines, and real-time inference.',
 	github: 'https://github.com/ayaan47-1',
-	linkedin: 'https://www.linkedin.com/in/ayaanahmedkhan/'
+	linkedin: 'https://www.linkedin.com/in/ayaanahmedkhan/',
+	aboutMe:
+		"I'm an AI Engineer focused on building production-grade systems — retrieval pipelines, agents, and real-time inference. When I'm not shipping, I'm probably reading about distributed systems or listening to music."
 };
 
 export const projects: Project[] = [
@@ -25,6 +27,8 @@ export const projects: Project[] = [
 	},
 	{
 		name: 'Syntec AI Chatbot',
+		link: 'https://build.syntecgroup.com/',
+		status: 'deployed',
 		bullets: [
 			'Semantic search chatbot across PDFs/blog/site with automated citations and context-aware responses.',
 			'React UI + Flask API + WordPress integration + scraping + Redis caching + Docker deployment; built for internal and client use.'
@@ -88,3 +92,36 @@ export const workExperience: WorkExperience[] = [
 		]
 	}
 ];
+
+export const nowWatching: NowWatching = {
+	title: 'Industry',
+	year: '2024',
+	type: 'Show',
+	past: ['Silicon Valley', 'Severance', 'Succession']
+};
+
+export const nowBuilding: NowBuilding[] = [
+	{
+		name: 'Clutch (staging)',
+		description: 'AI course generation platform',
+		link: 'https://staging.clutch.courses/'
+	},
+	{
+		name: 'SyntecAI (deployed)',
+		description: 'Enterprise RAG platform',
+		link: 'https://build.syntecgroup.com/'
+	},
+	{
+		name: 'Internal Agent',
+		description: 'Automating firm workflows'
+	},
+	{
+		name: 'This site',
+		description: 'always iterating'
+	}
+];
+
+export const nowUsing: NowUsing = {
+	hardware: ['MacBook Pro M4 Pro', 'iPhone 17 Pro', 'Samsung Z Fold 7'],
+	software: ['VS Code', 'Claude Code', 'Codex', 'Gemini', 'Ghostty']
+};

@@ -8,7 +8,7 @@
 	const { experience }: Props = $props();
 </script>
 
-<article class="bg-surface card-glow rounded-lg p-6 md:p-7 slide-up group">
+<article class="card-glow rounded-lg p-6 md:p-7 slide-up group backdrop-blur-sm text-text-primary" style="background-color: rgb(var(--color-surface-channels) / 0.8);">
 	<div class="flex flex-col md:flex-row md:items-start md:justify-between mb-3 gap-2">
 		<div>
 			<h3 class="font-futura text-xl md:text-2xl font-semibold text-text-primary group-hover:text-accent-glow transition-colors duration-300">

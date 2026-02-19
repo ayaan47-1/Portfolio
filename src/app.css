@@ -3,15 +3,64 @@
 @tailwind utilities;
 
 @layer base {
+
+	/* ── Dark theme (default) ── */
+	:root {
+		--color-background: #0a0a0a;
+		--color-surface: #111111;
+		--color-surface-channels: 17 17 17;
+		--color-border: #222222;
+		--color-border-channels: 34 34 34;
+		--color-text-primary: #e5e5e5;
+		--color-text-secondary: #a3a3a3;
+		--color-text-muted: #737373;
+		--color-accent: #3b82f6;
+		--color-accent-channels: 59 130 246;
+		--color-accent-hover: #2563eb;
+		--color-accent-glow: #60a5fa;
+		--color-accent-muted: #1d4ed8;
+		--grid-color: rgba(59, 130, 246, 0.06);
+		--gradient-text-from: #60a5fa;
+		--gradient-text-to: #3b82f6;
+		--gradient-text-glow: rgba(59, 130, 246, 0.5);
+		--gradient-text-glow-outer: rgba(59, 130, 246, 0.25);
+	}
+
+	/* ── Light theme ── */
+	[data-theme='light'] {
+		--color-background: #F5FEFD;
+		--color-surface: #ddeeff;
+		--color-surface-channels: 221 238 255;
+		--color-border: #a8c5e6;
+		--color-border-channels: 168 197 230;
+		--color-text-primary: #050b14;
+		--color-text-secondary: #162a52;
+		--color-text-muted: #3a5a8a;
+		--color-accent: #0055ff;
+		--color-accent-channels: 0 85 255;
+		--color-accent-hover: #0044cc;
+		--color-accent-glow: #4d8eff;
+		--color-accent-muted: #2563eb;
+		--grid-color: rgba(0, 85, 255, 0.05);
+		--gradient-text-from: #4d8eff;
+		--gradient-text-to: #0099ff;
+		--gradient-text-glow: rgba(0, 85, 255, 0.35);
+		--gradient-text-glow-outer: rgba(0, 85, 255, 0.15);
+	}
+
 	html {
 		scroll-behavior: smooth;
+		background-color: var(--color-background);
 	}
 
 	body {
-		@apply bg-background text-text-primary font-sans;
+		@apply text-text-primary font-sans;
 		@apply antialiased;
+		background-color: transparent;
 		position: relative;
+		z-index: 0;
 		overflow-x: hidden;
+		transition: background-color 0.3s ease, color 0.3s ease;
 	}
 
 	/* Animated grid background */
@@ -22,13 +71,15 @@
 		left: 0;
 		width: 100%;
 		height: 100%;
+		background-color: var(--color-background);
 		background-image:
-			linear-gradient(rgba(34, 197, 94, 0.08) 1px, transparent 1px),
-			linear-gradient(90deg, rgba(34, 197, 94, 0.08) 1px, transparent 1px);
+			linear-gradient(var(--grid-color) 1px, transparent 1px),
+			linear-gradient(90deg, var(--grid-color) 1px, transparent 1px);
 		background-size: 50px 50px;
 		pointer-events: none;
-		z-index: 0;
+		z-index: -1;
 		animation: gridMove 20s linear infinite;
+		transition: background-color 0.3s ease, background-image 0.3s ease;
 	}
 
 	@keyframes gridMove {
@@ -55,17 +106,17 @@
 
 @layer utilities {
 
-	/* Subtle hover lift effect with green glow */
+	/* Subtle hover lift effect */
 	.hover-lift {
 		@apply transition-all duration-300 ease-in-out;
 	}
 
 	.hover-lift:hover {
 		@apply -translate-y-1;
-		box-shadow: 0 10px 40px rgba(34, 197, 94, 0.3);
+		box-shadow: 0 10px 40px rgb(var(--color-accent-channels) / 0.3);
 	}
 
-	/* Link utility with green accent underline on hover */
+	/* Link utility */
 	.link {
 		@apply transition-all duration-200;
 		@apply underline decoration-transparent underline-offset-4;
@@ -75,15 +126,16 @@
 		@apply decoration-accent text-accent;
 	}
 
-	/* Hacker green gradient text effect with glow */
+	/* Gradient text — uses CSS vars so it switches with theme */
 	.gradient-text {
-		background: linear-gradient(135deg, #00ff41 0%, #00ff88 100%);
+		background: linear-gradient(135deg, var(--gradient-text-from) 0%, var(--gradient-text-to) 100%);
 		-webkit-background-clip: text;
 		-webkit-text-fill-color: transparent;
 		background-clip: text;
 		animation: gradientShift 3s ease infinite;
 		background-size: 200% 200%;
-		filter: drop-shadow(0 0 20px rgba(0, 255, 65, 0.6)) drop-shadow(0 0 40px rgba(0, 255, 65, 0.3));
+		filter: drop-shadow(0 0 20px var(--gradient-text-glow)) drop-shadow(0 0 40px var(--gradient-text-glow-outer));
+		transition: filter 0.3s ease;
 	}
 
 	@keyframes gradientShift {
@@ -101,21 +153,30 @@
 	/* Card glow effect */
 	.card-glow {
 		@apply transition-all duration-300;
-		border: 1px solid theme('colors.border');
+		border: 1px solid var(--color-border);
 	}
 
 	.card-glow:hover {
-		border-color: theme('colors.accent');
-		box-shadow: 0 0 30px rgba(34, 197, 94, 0.4), 0 0 60px rgba(34, 197, 94, 0.1);
+		border-color: var(--color-accent);
+		box-shadow: 0 0 30px color-mix(in srgb, var(--color-accent) 35%, transparent), 0 0 60px color-mix(in srgb, var(--color-accent) 10%, transparent);
 		transform: translateY(-2px);
 	}
 
-	/* Underline with gaps for descenders */
+	/* Hover lift with accent glow */
+	.hover-lift {
+		@apply transition-all duration-300 ease-in-out;
+	}
+
+	.hover-lift:hover {
+		@apply -translate-y-1;
+		box-shadow: 0 10px 40px color-mix(in srgb, var(--color-accent) 25%, transparent);
+	}
+
 	.underline-with-gaps {
 		text-decoration: underline;
-		text-decoration-color: theme('colors.accent');
-		text-decoration-thickness: 3px;
-		text-underline-offset: 8px;
+		text-decoration-color: var(--color-accent);
+		text-decoration-thickness: 1px;
+		text-underline-offset: 6px;
 		text-decoration-skip-ink: auto;
 	}
 
