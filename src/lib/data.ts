@@ -117,7 +117,7 @@ export const nowBuilding: NowBuilding[] = [
 	},
 	{
 		name: 'This site',
-		description: 'always iterating'
+		description: 'continuously refining'
 	}
 ];
 

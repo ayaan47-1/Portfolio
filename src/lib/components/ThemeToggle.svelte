@@ -1,8 +1,9 @@
 <script lang="ts">
 	import { onMount } from 'svelte';
+	import { Sun, MoonStar } from 'lucide-svelte';
 
 	let isDark = $state(true);
-
+    // ... existing logic ...
 	onMount(() => {
 		// Read saved preference
 		const saved = localStorage.getItem('theme');
@@ -30,25 +31,14 @@
 <button
 	onclick={toggle}
 	aria-label="Toggle light/dark mode"
-	class="fixed top-4 right-4 z-50 w-9 h-9 rounded-full flex items-center justify-center border border-border bg-surface/80 backdrop-blur-sm text-text-secondary hover:text-accent hover:border-accent transition-all duration-200 shadow-sm"
+	class="fixed top-6 right-6 z-50 w-12 h-12 rounded-full flex items-center justify-center border border-border bg-surface/80 backdrop-blur-sm text-text-secondary hover:text-accent hover:border-accent transition-all duration-300 shadow-lg hover:shadow-accent/20 group"
 >
-	{#if isDark}
-		<!-- Sun icon -->
-		<svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-			<circle cx="12" cy="12" r="5"/>
-			<line x1="12" y1="1" x2="12" y2="3"/>
-			<line x1="12" y1="21" x2="12" y2="23"/>
-			<line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/>
-			<line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/>
-			<line x1="1" y1="12" x2="3" y2="12"/>
-			<line x1="21" y1="12" x2="23" y2="12"/>
-			<line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/>
-			<line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/>
-		</svg>
-	{:else}
-		<!-- Moon icon -->
-		<svg xmlns="http://www.w3.org/2000/svg" class="w-4 h-4" fill="none" viewBox="0 0 24 24" stroke="currentColor" stroke-width="2">
-			<path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/>
-		</svg>
-	{/if}
+	<div class="relative w-6 h-6">
+		<div class="absolute inset-0 transition-transform duration-500 rotate-0 scale-100 {isDark ? 'opacity-0 -rotate-90 scale-50' : 'opacity-100'}">
+			<Sun class="w-6 h-6" />
+		</div>
+		<div class="absolute inset-0 transition-transform duration-500 rotate-90 scale-50 {isDark ? 'opacity-100 rotate-0 scale-100' : 'opacity-0'}">
+			<MoonStar class="w-6 h-6" />
+		</div>
+	</div>
 </button>
