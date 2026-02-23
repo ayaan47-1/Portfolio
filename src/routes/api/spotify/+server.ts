@@ -1,7 +1,13 @@
 import { json } from '@sveltejs/kit';
-import { SPOTIFY_CLIENT_ID, SPOTIFY_CLIENT_SECRET, SPOTIFY_REFRESH_TOKEN } from '$env/static/private';
+import { env } from '$env/dynamic/private';
 
 async function getAccessToken(): Promise<string> {
+    const { SPOTIFY_CLIENT_ID, SPOTIFY_CLIENT_SECRET, SPOTIFY_REFRESH_TOKEN } = env;
+
+    if (!SPOTIFY_CLIENT_ID || !SPOTIFY_CLIENT_SECRET || !SPOTIFY_REFRESH_TOKEN) {
+        throw new Error('Spotify credentials are not set in the environment');
+    }
+
     const credentials = btoa(`${SPOTIFY_CLIENT_ID}:${SPOTIFY_CLIENT_SECRET}`);
 
     const response = await fetch('https://accounts.spotify.com/api/token', {
@@ -79,7 +85,8 @@ export async function GET() {
             isPlaying,
             playedAt
         });
-    } catch {
+    } catch (e) {
+        console.error('Spotify API Error:', e);
         return json(null);
     }
 }
