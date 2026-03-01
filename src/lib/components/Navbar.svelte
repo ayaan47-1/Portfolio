@@ -13,7 +13,10 @@
 					}
 				});
 			},
-			{ threshold: 0.5 } // Adjust threshold as needed
+			// threshold: 0 + rootMargin creates a trigger band at 30–40% from the top.
+			// This handles tall sections (like Projects) that exceed viewport height,
+			// where threshold: 0.5 would never fire.
+			{ threshold: 0, rootMargin: '-30% 0px -60% 0px' }
 		);
 
 		const sections = document.querySelectorAll('section[id]');
