@@ -6,6 +6,7 @@
 	import Navbar from '$lib/components/Navbar.svelte';
 	import { MapPin, Mail, GraduationCap, ArrowUp, Briefcase, BookOpen } from 'lucide-svelte';
 	import { personalInfo, projects, workExperience, systemsThinking, nowWatching, nowBuilding, nowUsing } from '$lib/data';
+	import HeroGraphic from '$lib/components/HeroGraphic.svelte';
 
 	/* Scroll to Top logic */
 	let showScroll = $state(false);
@@ -47,61 +48,71 @@
 <!-- Hero Section -->
 <section id="home" class="pt-16 pb-8 md:pt-20 md:pb-12">
 	<div class="mx-auto max-w-4xl px-6 md:px-8">
-		<h1 class="font-futura text-5xl md:text-7xl font-bold mb-4 gradient-text">
-			{personalInfo.name}
-		</h1>
-		<p class="text-2xl md:text-3xl text-text-primary font-futura font-medium mb-2">
-			{personalInfo.title}
-		</p>
-		<p class="text-base md:text-lg text-text-secondary mb-4 max-w-2xl leading-relaxed">
-			{personalInfo.valueLine}
-		</p>
-		<div class="space-y-3 text-text-secondary mt-6 mb-6">
-			<p class="flex items-center gap-3 text-base">
-				<MapPin class="w-5 h-5 text-accent" />
-				<span>{personalInfo.location}</span>
-			</p>
-			<p class="flex items-center gap-3 text-base">
-				<Mail class="w-5 h-5 text-accent" />
-				<a href="mailto:{personalInfo.email}" class="link hover:text-accent-glow transition-all">
-					{personalInfo.email}
-				</a>
-			</p>
-		</div>
+		<div class="flex items-start gap-8 md:gap-10">
+			<!-- Text content -->
+			<div class="flex-1 min-w-0">
+				<h1 class="font-futura text-5xl md:text-7xl font-bold mb-4 gradient-text">
+					{personalInfo.name}
+				</h1>
+				<p class="text-2xl md:text-3xl text-text-primary font-futura font-medium mb-2">
+					{personalInfo.title}
+				</p>
+				<p class="text-base md:text-lg text-text-secondary mb-4 max-w-2xl leading-relaxed">
+					{personalInfo.valueLine}
+				</p>
+				<div class="space-y-3 text-text-secondary mt-6 mb-6">
+					<p class="flex items-center gap-3 text-base">
+						<MapPin class="w-5 h-5 text-accent" />
+						<span>{personalInfo.location}</span>
+					</p>
+					<p class="flex items-center gap-3 text-base">
+						<Mail class="w-5 h-5 text-accent" />
+						<a href="mailto:{personalInfo.email}" class="link hover:text-accent-glow transition-all">
+							{personalInfo.email}
+						</a>
+					</p>
+				</div>
 
-		<div class="flex flex-wrap gap-6 text-base font-medium mb-8">
-			<a
-				href={personalInfo.github}
-				target="_blank"
-				rel="noopener noreferrer"
-				class="link text-text-secondary hover:text-accent-glow transition-all flex items-center gap-2 group"
-			>
-				<svg class="w-5 h-5 text-accent group-hover:text-accent-glow transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
-				</svg>
-				GitHub
-			</a>
-			<a
-				href={personalInfo.linkedin}
-				target="_blank"
-				rel="noopener noreferrer"
-				class="link text-text-secondary hover:text-accent-glow transition-all flex items-center gap-2 group"
-			>
-				<svg class="w-5 h-5 text-accent group-hover:text-accent-glow transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"></path>
-					<circle cx="4" cy="4" r="2" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></circle>
-				</svg>
-				LinkedIn
-			</a>
-			<a href="/Ayaan_Ahmed_Khan_Resume.pdf" target="_blank" class="link text-text-secondary hover:text-accent-glow transition-all flex items-center gap-2 group">
-				<svg class="w-5 h-5 text-accent group-hover:text-accent-glow transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
-					<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5.586a1 1 0 0 1 .707.293l5.414 5.414a1 1 0 0 1 .293.707V19a2 2 0 0 1-2 2z"></path>
-				</svg>
-				Resume
-			</a>
-		</div>
+				<div class="flex flex-wrap gap-6 text-base font-medium mb-8">
+					<a
+						href={personalInfo.github}
+						target="_blank"
+						rel="noopener noreferrer"
+						class="link text-text-secondary hover:text-accent-glow transition-all flex items-center gap-2 group"
+					>
+						<svg class="w-5 h-5 text-accent group-hover:text-accent-glow transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+						</svg>
+						GitHub
+					</a>
+					<a
+						href={personalInfo.linkedin}
+						target="_blank"
+						rel="noopener noreferrer"
+						class="link text-text-secondary hover:text-accent-glow transition-all flex items-center gap-2 group"
+					>
+						<svg class="w-5 h-5 text-accent group-hover:text-accent-glow transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"></path>
+							<circle cx="4" cy="4" r="2" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></circle>
+						</svg>
+						LinkedIn
+					</a>
+					<a href="/Ayaan_Ahmed_Khan_Resume.pdf" target="_blank" class="link text-text-secondary hover:text-accent-glow transition-all flex items-center gap-2 group">
+						<svg class="w-5 h-5 text-accent group-hover:text-accent-glow transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+							<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5.586a1 1 0 0 1 .707.293l5.414 5.414a1 1 0 0 1 .293.707V19a2 2 0 0 1-2 2z"></path>
+						</svg>
+						Resume
+					</a>
+				</div>
 
-		<NowCards watching={nowWatching} building={nowBuilding} using={nowUsing} />
+				<NowCards watching={nowWatching} building={nowBuilding} using={nowUsing} />
+			</div>
+
+			<!-- Abstract graphic (desktop only) -->
+			<div class="hidden md:block w-52 h-52 flex-shrink-0 self-center opacity-90">
+				<HeroGraphic />
+			</div>
+		</div>
 	</div>
 </section>
 

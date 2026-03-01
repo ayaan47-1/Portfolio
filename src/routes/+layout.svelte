@@ -1,6 +1,7 @@
 <script lang="ts">
 	import '../app.css';
 	import ThemeToggle from '$lib/components/ThemeToggle.svelte';
+	import CursorTrail from '$lib/components/CursorTrail.svelte';
 
 	const { children } = $props();
 </script>
@@ -17,5 +18,6 @@
 	</style>
 </svelte:head>
 
+<CursorTrail />
 <ThemeToggle />
 {@render children()}
