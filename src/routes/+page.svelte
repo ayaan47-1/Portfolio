@@ -47,8 +47,7 @@
 <!-- Hero Section -->
 <section id="home" class="pt-16 pb-8 md:pt-20 md:pb-12">
 	<div class="mx-auto max-w-4xl px-6 md:px-8">
-		<div>
-				<h1 class="font-futura text-5xl md:text-7xl font-bold mb-4 gradient-text">
+		<h1 class="font-futura text-5xl md:text-7xl font-bold mb-4 gradient-text">
 					{personalInfo.name}
 				</h1>
 				<p class="text-2xl md:text-3xl text-text-primary font-futura font-medium mb-2">
@@ -103,7 +102,6 @@
 				</div>
 
 				<NowCards watching={nowWatching} building={nowBuilding} using={nowUsing} />
-		</div>
 	</div>
 </section>
 
