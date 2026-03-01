@@ -6,7 +6,6 @@
 	import Navbar from '$lib/components/Navbar.svelte';
 	import { MapPin, Mail, GraduationCap, ArrowUp, Briefcase, BookOpen } from 'lucide-svelte';
 	import { personalInfo, projects, workExperience, systemsThinking, nowWatching, nowBuilding, nowUsing } from '$lib/data';
-	import HeroGraphic from '$lib/components/HeroGraphic.svelte';
 
 	/* Scroll to Top logic */
 	let showScroll = $state(false);
@@ -48,9 +47,7 @@
 <!-- Hero Section -->
 <section id="home" class="pt-16 pb-8 md:pt-20 md:pb-12">
 	<div class="mx-auto max-w-4xl px-6 md:px-8">
-		<div class="flex items-start gap-8 md:gap-10">
-			<!-- Text content -->
-			<div class="flex-1 min-w-0">
+		<div>
 				<h1 class="font-futura text-5xl md:text-7xl font-bold mb-4 gradient-text">
 					{personalInfo.name}
 				</h1>
@@ -106,12 +103,6 @@
 				</div>
 
 				<NowCards watching={nowWatching} building={nowBuilding} using={nowUsing} />
-			</div>
-
-			<!-- Abstract graphic (desktop only) -->
-			<div class="hidden md:block w-52 h-52 flex-shrink-0 self-center opacity-90">
-				<HeroGraphic />
-			</div>
 		</div>
 	</div>
 </section>
