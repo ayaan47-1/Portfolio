@@ -10,6 +10,7 @@ export async function GET() {
             clientSecret: !!SPOTIFY_CLIENT_SECRET,
             refreshToken: !!SPOTIFY_REFRESH_TOKEN,
             clientIdLen: SPOTIFY_CLIENT_ID?.length ?? 0,
+            clientSecretLen: SPOTIFY_CLIENT_SECRET?.length ?? 0,
             refreshTokenLen: SPOTIFY_REFRESH_TOKEN?.length ?? 0
         };
 
@@ -19,7 +20,7 @@ export async function GET() {
 
         let tokenData: Record<string, unknown>;
         try {
-            const credentials = btoa(`${SPOTIFY_CLIENT_ID}:${SPOTIFY_CLIENT_SECRET}`);
+            const credentials = btoa(`${SPOTIFY_CLIENT_ID.trim()}:${SPOTIFY_CLIENT_SECRET.trim()}`);
             const tokenResponse = await fetch('https://accounts.spotify.com/api/token', {
                 method: 'POST',
                 headers: {
@@ -28,7 +29,7 @@ export async function GET() {
                 },
                 body: new URLSearchParams({
                     grant_type: 'refresh_token',
-                    refresh_token: SPOTIFY_REFRESH_TOKEN
+                    refresh_token: SPOTIFY_REFRESH_TOKEN.trim()
                 })
             });
             tokenData = await tokenResponse.json();

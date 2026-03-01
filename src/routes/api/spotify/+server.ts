@@ -8,7 +8,11 @@ async function getAccessToken(): Promise<string> {
         throw new Error('Spotify credentials are not set in the environment');
     }
 
-    const credentials = btoa(`${SPOTIFY_CLIENT_ID}:${SPOTIFY_CLIENT_SECRET}`);
+    const clientId = SPOTIFY_CLIENT_ID.trim();
+    const clientSecret = SPOTIFY_CLIENT_SECRET.trim();
+    const refreshToken = SPOTIFY_REFRESH_TOKEN.trim();
+
+    const credentials = btoa(`${clientId}:${clientSecret}`);
 
     const response = await fetch('https://accounts.spotify.com/api/token', {
         method: 'POST',
@@ -18,7 +22,7 @@ async function getAccessToken(): Promise<string> {
         },
         body: new URLSearchParams({
             grant_type: 'refresh_token',
-            refresh_token: SPOTIFY_REFRESH_TOKEN
+            refresh_token: refreshToken
         })
     });
 
