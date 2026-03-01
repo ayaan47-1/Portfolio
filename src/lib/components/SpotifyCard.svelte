@@ -55,7 +55,7 @@
 				/>
 			</svg>
 			<span class="text-xs font-futura text-text-muted uppercase tracking-widest">
-				{#if track?.isPlaying}Listening{:else}Recently played{/if}
+				{#if track?.isPlaying}Now playing{:else}Recently played{/if}
 			</span>
 		</a>
 		
