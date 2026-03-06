@@ -52,11 +52,21 @@ export const projects: Project[] = [
 		link: 'https://build.syntecgroup.com/',
 		status: 'deployed',
 		bullets: [
-			'Shipped a semantic search and retrieval augmented chatbot using GPT-4o and ChromaDB embeddings to deliver question answering across PDF documents, CSVs, blog posts, and website content with automated source citations.',
-			'Built an agentic system using OpenAI function calling that enables authorized users to read, write, and modify mastercode, unicode, and omnicode entries through natural language, with role-based access controls and confirmation flows for destructive operations.',
-			'Containerized the service with Docker Compose for consistent deployments, implemented a dual-LLM fallback strategy for cost optimization, and added security controls including input sanitization, rate limiting, and CORS restrictions.'
+			'Shipped a semantic search and retrieval-augmented chatbot using GPT-4o and ChromaDB embeddings to deliver question answering across PDF documents, CSVs, blog posts, and website content with automated source citations.',
+			'Processed and chunked multi-format documents including PDF, CSV, XLSX, and PNG with OCR, cached embeddings by content hash with Redis, and served top-10 similarity results with a dual-LLM fallback strategy using DeepSeek for cost optimization.',
+			'Containerized the full stack with Docker Compose in dual deployment modes, and deployed the frontend to Vercel with HTTPS and server-side rewrites proxying API traffic to the DigitalOcean backend.'
 		],
-		tech: 'React, Flask, ChromaDB, Redis, Docker, WordPress'
+		tech: 'Flask, React, Vite, ChromaDB, OpenAI GPT-4o, DeepSeek, Redis, Docker, Nginx, Vercel'
+	},
+	{
+		name: 'SyntecAgent',
+		status: 'deployed',
+		bullets: [
+			'Built an agentic Coding, Classification & Naming system using OpenAI function calling that enables users to query, add, update, and delete BIM module codes through natural language with automated sub-code assignment.',
+			'Ingested XLSX classification sheets into SQLite with category-derived indexing, synced agent-written entries atomically to ChromaDB for semantic retrieval, and exposed a REST API with confirmation gates on destructive operations.',
+			'Designed a dependency-injected agent package architecture that eliminates circular imports, enforces SQLite-to-ChromaDB transactional consistency with rollback on sync failure, and caps query results to prevent unbounded responses.'
+		],
+		tech: 'Flask, OpenAI Function Calling, SQLite, ChromaDB, React, Docker'
 	},
 	{
 		name: 'InvestoChat',
