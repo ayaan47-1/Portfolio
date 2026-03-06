@@ -150,9 +150,8 @@ export const nowBuilding: NowBuilding[] = [
 		link: 'https://staging.clutch.courses/'
 	},
 	{
-		name: 'SyntecAI (deployed)',
-		description: 'Enterprise RAG platform',
-		link: 'https://build.syntecgroup.com/'
+		name: 'SyntecAgent (deployed)',
+		description: 'BIM classification agent'
 	},
 	{
 		name: 'Internal Agent',
