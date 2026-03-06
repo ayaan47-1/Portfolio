@@ -50,7 +50,7 @@ export const projects: Project[] = [
 	{
 		name: 'SyntecAgent',
 		link: 'https://syntec-agent.vercel.app/',
-		glowColor: '#00ff00',
+		glowColor: '#3b82f6',
 		status: 'deployed',
 		bullets: [
 			'Built an agentic Coding, Classification & Naming system using OpenAI function calling that enables users to query, add, update, and delete BIM module codes through natural language with automated sub-code assignment.',
@@ -62,7 +62,7 @@ export const projects: Project[] = [
 	{
 		name: 'Syntec AI Chatbot',
 		link: 'https://build.syntecgroup.com/',
-		glowColor: '#00ff00',
+		glowColor: '#3b82f6',
 		status: 'deployed',
 		bullets: [
 			'Shipped a semantic search and retrieval-augmented chatbot using GPT-4o and ChromaDB embeddings to deliver question answering across PDF documents, CSVs, blog posts, and website content with automated source citations.',
