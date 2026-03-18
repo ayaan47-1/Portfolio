@@ -301,9 +301,9 @@
 	</section>
 
 	<!-- ── 02 · About ── -->
-	<section id="about" class="snap-section" class:is-visible={activeIdx === 1}>
+	<section id="about" class="snap-section scrollable-mobile" class:is-visible={activeIdx === 1}>
 		<div class="section-watermark">02</div>
-		<div class="section-inner mx-auto w-full max-w-5xl px-6 md:px-12 py-16 md:py-0">
+		<div class="section-inner mx-auto w-full max-w-5xl px-6 md:px-12 py-10 md:py-0">
 			<span class="section-label">Background</span>
 			<h2 class="snap-heading mb-7">About Me</h2>
 
@@ -354,9 +354,9 @@
 	</section>
 
 	<!-- ── 03 · Experience ── -->
-	<section id="experience" class="snap-section" class:is-visible={activeIdx === 2}>
+	<section id="experience" class="snap-section scrollable-mobile" class:is-visible={activeIdx === 2}>
 		<div class="section-watermark">03</div>
-		<div class="section-inner mx-auto w-full max-w-5xl px-6 md:px-12 py-16 md:py-0">
+		<div class="section-inner mx-auto w-full max-w-5xl px-6 md:px-12 py-10 md:py-0">
 			<span class="section-label">Career</span>
 			<h2 class="snap-heading mb-6">Experience</h2>
 
@@ -402,9 +402,9 @@
 	</section>
 
 	<!-- ── 04 · Projects ── -->
-	<section id="projects" class="snap-section" class:is-visible={activeIdx === 3}>
+	<section id="projects" class="snap-section scrollable-mobile" class:is-visible={activeIdx === 3}>
 		<div class="section-watermark">04</div>
-		<div class="section-inner mx-auto w-full max-w-5xl px-6 md:px-12 py-16 md:py-0">
+		<div class="section-inner mx-auto w-full max-w-5xl px-6 md:px-12 py-10 md:py-0">
 			<span class="section-label">Work</span>
 			<h2 class="snap-heading mb-5">Projects</h2>
 
