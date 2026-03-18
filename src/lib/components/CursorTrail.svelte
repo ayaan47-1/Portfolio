@@ -17,19 +17,21 @@
 
 		// Trail points — more points for a longer, smoother slice
 		const TRAIL = 36;
-		const pts: { x: number; y: number }[] = [];
+		let pts: { x: number; y: number }[] = [];
 		let mouseX = -9999;
 		let mouseY = -9999;
 		let entered = false;
 
-		// Smooth follower — head of the slice lags slightly for fluid feel
-		let headX = -9999;
-		let headY = -9999;
-
 		function onMove(e: MouseEvent) {
 			mouseX = e.clientX;
 			mouseY = e.clientY;
-			entered = true;
+			if (!entered) {
+				// Initialize all points at the first cursor position
+				for (let i = 0; i < TRAIL; i++) {
+					pts.push({ x: mouseX, y: mouseY });
+				}
+				entered = true;
+			}
 		}
 		window.addEventListener('mousemove', onMove, { passive: true });
 
@@ -39,12 +41,15 @@
 			ctx.clearRect(0, 0, canvas.width, canvas.height);
 
 			if (entered) {
-				// Smooth interpolation toward actual cursor
-				headX += (mouseX - headX) * 0.45;
-				headY += (mouseY - headY) * 0.45;
+				// The head interpolates toward the actual cursor
+				pts[0].x += (mouseX - pts[0].x) * 0.5;
+				pts[0].y += (mouseY - pts[0].y) * 0.5;
 
-				pts.unshift({ x: headX, y: headY });
-				if (pts.length > TRAIL) pts.length = TRAIL;
+				// The rest follow their preceding node, acting like a springy rope
+				for (let i = 1; i < TRAIL; i++) {
+					pts[i].x += (pts[i - 1].x - pts[i].x) * 0.5;
+					pts[i].y += (pts[i - 1].y - pts[i].y) * 0.5;
+				}
 			}
 
 			if (pts.length < 2) {
