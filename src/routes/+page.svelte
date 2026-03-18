@@ -183,7 +183,7 @@
 <div class="snap-container" bind:this={scrollEl}>
 
 	<!-- ── 01 · Hero ── -->
-	<section id="home" class="snap-section relative" class:is-visible={activeIdx === 0}>
+	<section id="home" class="snap-section scrollable-mobile relative" class:is-visible={activeIdx === 0}>
 		<div class="section-watermark">01</div>
 
 		<!-- Avatar — floated into the right negative space -->

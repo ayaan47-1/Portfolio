@@ -15,7 +15,7 @@
 					}
 				});
 			},
-			{ root: snapContainer, threshold: 0.5 }
+			{ root: null, threshold: 0.5 }
 		);
 
 		const sections = document.querySelectorAll('section[id]');
@@ -41,12 +41,12 @@
 	];
 </script>
 
-<nav class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 animate-fade-in-up">
-	<div class="flex items-center gap-1 p-1.5 rounded-full bg-surface/80 backdrop-blur-md border border-white/10 shadow-2xl ring-1 ring-white/5">
+<nav class="fixed bottom-6 left-1/2 -translate-x-1/2 z-50 animate-fade-in-up max-w-[calc(100vw-2rem)]">
+	<div class="flex items-center gap-0.5 p-1.5 rounded-full bg-surface/80 backdrop-blur-md border border-white/10 shadow-2xl ring-1 ring-white/5">
 		{#each links as link}
 			<button
 				onclick={() => scrollTo(link.id)}
-				class="px-4 py-2 text-sm font-medium rounded-full transition-all duration-300 relative group
+				class="px-3 py-1.5 text-xs sm:px-4 sm:py-2 sm:text-sm font-medium rounded-full transition-all duration-300 relative group
 				{activeSection === link.id ? 'text-text-primary bg-white/10' : 'text-text-muted hover:text-text-primary hover:bg-white/5'}"
 			>
 				{link.label}
