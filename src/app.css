@@ -310,18 +310,20 @@
 		color: var(--color-text-primary);
 	}
 
-	/* Section content entrance animation */
-	.snap-section .section-inner {
-		opacity: 0;
-		transform: translateY(28px);
-		transition:
-			opacity 0.55s ease 0.05s,
-			transform 0.55s ease 0.05s;
-	}
+	/* Section content entrance animation — desktop only */
+	@media (min-width: 768px) {
+		.snap-section .section-inner {
+			opacity: 0;
+			transform: translateY(28px);
+			transition:
+				opacity 0.55s ease 0.05s,
+				transform 0.55s ease 0.05s;
+		}
 
-	.snap-section.is-visible .section-inner {
-		opacity: 1;
-		transform: translateY(0);
+		.snap-section.is-visible .section-inner {
+			opacity: 1;
+			transform: translateY(0);
+		}
 	}
 
 	/* Scroll hint chevron */

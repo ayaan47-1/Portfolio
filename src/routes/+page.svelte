@@ -80,7 +80,7 @@
 					}
 				});
 			},
-			{ root: scrollEl, threshold: 0.5 }
+			{ root: null, threshold: 0.5 }
 		);
 		els.forEach((el) => obs.observe(el));
 		return () => {
