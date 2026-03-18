@@ -315,8 +315,9 @@
 		transform: translateY(0);
 	}
 
-	/* Scroll hint chevron */
+	/* Scroll hint chevron — desktop only */
 	.scroll-hint {
+		display: none;
 		position: absolute;
 		bottom: 1.5rem;
 		left: 50%;
@@ -324,6 +325,12 @@
 		color: var(--color-text-muted);
 		transition: color 0.2s;
 		animation: hintBounce 2.2s ease-in-out infinite;
+	}
+
+	@media (min-width: 768px) {
+		.scroll-hint {
+			display: block;
+		}
 	}
 
 	.scroll-hint:hover {
