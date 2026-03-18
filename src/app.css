@@ -206,4 +206,141 @@
 	.delay-400 {
 		animation-delay: 400ms;
 	}
+
+	/* ── Grain / noise texture ── */
+	body::after {
+		content: '';
+		position: fixed;
+		inset: 0;
+		z-index: 9999;
+		pointer-events: none;
+		opacity: 0.035;
+		background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+		background-repeat: repeat;
+		background-size: 128px 128px;
+	}
+
+	/* ── Stop Scroll Layout ── */
+
+	/* Desktop: enable stop scroll */
+	@media (min-width: 768px) {
+		html {
+			height: 100%;
+			overflow: hidden;
+		}
+		body {
+			height: 100%;
+			overflow: hidden;
+		}
+	}
+
+	.snap-container {
+		height: 100%;
+		scrollbar-width: none;
+		-ms-overflow-style: none;
+	}
+
+	.snap-container::-webkit-scrollbar {
+		display: none;
+	}
+
+	@media (min-width: 768px) {
+		.snap-container {
+			height: 100vh;
+			height: 100dvh;
+			overflow-y: scroll;
+			scroll-snap-type: y mandatory;
+			scroll-behavior: smooth;
+		}
+	}
+
+	.snap-section {
+		min-height: 100vh;
+		position: relative;
+		display: flex;
+		flex-direction: column;
+		justify-content: center;
+		align-items: stretch;
+		overflow: hidden;
+	}
+
+	@media (min-width: 768px) {
+		.snap-section {
+			height: 100vh;
+			height: 100dvh;
+			min-height: unset;
+			scroll-snap-align: start;
+		}
+	}
+
+	/* Giant section watermark number */
+	.section-watermark {
+		position: absolute;
+		right: -0.02em;
+		bottom: -0.15em;
+		font-size: min(28vw, 300px);
+		font-weight: 900;
+		line-height: 1;
+		letter-spacing: -0.05em;
+		color: var(--color-text-primary);
+		opacity: 0.03;
+		pointer-events: none;
+		user-select: none;
+		font-family: 'Futura', 'Century Gothic', 'Trebuchet MS', sans-serif;
+	}
+
+	/* Small uppercase label above section titles */
+	.section-label {
+		display: inline-block;
+		font-size: 0.65rem;
+		font-weight: 700;
+		letter-spacing: 0.25em;
+		text-transform: uppercase;
+		color: var(--color-accent);
+		font-family: 'Roboto Mono', monospace;
+		margin-bottom: 0.4rem;
+	}
+
+	/* Large section heading */
+	.snap-heading {
+		font-family: 'Futura', 'Century Gothic', 'Trebuchet MS', sans-serif;
+		font-size: clamp(2rem, 4.5vw, 3.5rem);
+		font-weight: 700;
+		line-height: 1.1;
+		color: var(--color-text-primary);
+	}
+
+	/* Section content entrance animation */
+	.snap-section .section-inner {
+		opacity: 0;
+		transform: translateY(28px);
+		transition:
+			opacity 0.55s ease 0.05s,
+			transform 0.55s ease 0.05s;
+	}
+
+	.snap-section.is-visible .section-inner {
+		opacity: 1;
+		transform: translateY(0);
+	}
+
+	/* Scroll hint chevron */
+	.scroll-hint {
+		position: absolute;
+		bottom: 1.5rem;
+		left: 50%;
+		transform: translateX(-50%);
+		color: var(--color-text-muted);
+		transition: color 0.2s;
+		animation: hintBounce 2.2s ease-in-out infinite;
+	}
+
+	.scroll-hint:hover {
+		color: var(--color-accent);
+	}
+
+	@keyframes hintBounce {
+		0%, 100% { transform: translateX(-50%) translateY(0); }
+		50% { transform: translateX(-50%) translateY(7px); }
+	}
 }

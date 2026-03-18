@@ -1,4 +1,11 @@
-import type { PersonalInfo, Project, WorkExperience, NowWatching, NowBuilding, NowUsing } from './types';
+import type {
+	PersonalInfo,
+	Project,
+	WorkExperience,
+	NowWatching,
+	NowBuilding,
+	NowUsing
+} from './types';
 
 export const personalInfo: PersonalInfo = {
 	name: 'Ayaan Khan',
@@ -10,7 +17,7 @@ export const personalInfo: PersonalInfo = {
 	github: 'https://github.com/ayaan47-1',
 	linkedin: 'https://www.linkedin.com/in/ayaanahmedkhan/',
 	aboutMe:
-		'AI engineer and backend developer building production LLM systems, including retrieval augmented generation, semantic search, and multi-stage agent workflows. Experienced with asynchronous APIs, vector databases, Redis caching, job orchestration with retries, real-time streaming, and observability.',
+		"AI engineer building production LLM systems — RAG pipelines, semantic search, multi-agent workflows. Originally from India, based in Chicago. Outside the terminal, I'm an avid football fan (the real kind), play guitar, and spend too much time thinking about music and art. I think good taste is a technical skill.",
 	motivation: '',
 	education: {
 		university: 'Illinois Institute of Technology',
@@ -140,10 +147,10 @@ export const workExperience: WorkExperience[] = [
 ];
 
 export const nowWatching: NowWatching = {
-	title: 'Industry',
-	year: '2024',
+	title: 'DTF St. Louis',
+	year: '2025',
 	type: 'Show',
-	past: ['Silicon Valley', 'Severance', 'Succession']
+	past: ['Industry', 'Silicon Valley', 'Severance', 'Succession']
 };
 
 export const nowBuilding: NowBuilding[] = [
@@ -154,11 +161,12 @@ export const nowBuilding: NowBuilding[] = [
 	},
 	{
 		name: 'SyntecAgent (deployed)',
-		description: 'BIM classification agent'
+		description: 'Coding, Classification & Naming Agent'
 	},
 	{
-		name: 'Internal Agent',
-		description: 'Automating firm workflows'
+		name: 'VeritasLayer',
+		description:
+			'Evidence-traceable obligations, risk alerts & summaries from operational documents'
 	},
 	{
 		name: 'This site',

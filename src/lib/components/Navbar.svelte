@@ -5,18 +5,17 @@
 
 	// Smooth scroll and active state observer
 	onMount(() => {
+		const snapContainer = document.querySelector('.snap-container') as HTMLElement | null;
+
 		const observer = new IntersectionObserver(
 			(entries) => {
 				entries.forEach((entry) => {
-					if (entry.isIntersecting) {
+					if (entry.isIntersecting && entry.intersectionRatio >= 0.5) {
 						activeSection = entry.target.id;
 					}
 				});
 			},
-			// threshold: 0 + rootMargin creates a trigger band at 30–40% from the top.
-			// This handles tall sections (like Projects) that exceed viewport height,
-			// where threshold: 0.5 would never fire.
-			{ threshold: 0, rootMargin: '-30% 0px -60% 0px' }
+			{ root: snapContainer, threshold: 0.5 }
 		);
 
 		const sections = document.querySelectorAll('section[id]');
@@ -36,6 +35,7 @@
 	const links = [
 		{ id: 'home', label: 'Home' },
 		{ id: 'about', label: 'About' },
+		{ id: 'experience', label: 'Work' },
 		{ id: 'projects', label: 'Projects' },
 		{ id: 'systems-thinking', label: 'Systems' }
 	];
