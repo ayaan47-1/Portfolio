@@ -100,7 +100,7 @@
 	// Typewriter cycling
 	const TYPE_PHRASES = [
 		'building LLM pipelines',
-		'designing RAG systems',
+		'learning',
 		'shipping production AI',
 		'playing guitar',
 		'watching football'
@@ -182,30 +182,45 @@
 <!-- Scroll snap container                       -->
 <!-- ─────────────────────────────────────────── -->
 <div class="snap-container" bind:this={scrollEl}>
-
 	<!-- ── 01 · Hero ── -->
-	<section id="home" class="snap-section scrollable-mobile relative" class:is-visible={activeIdx === 0}>
+	<section
+		id="home"
+		class="snap-section scrollable-mobile relative"
+		class:is-visible={activeIdx === 0}
+	>
 		<div class="section-watermark">01</div>
 
 		<!-- Avatar — floated into the right negative space -->
-		<div class="hidden md:block absolute right-[27%] top-[8%] w-56 h-56 lg:w-60 lg:h-60 rounded-full overflow-hidden border-2 border-accent/30 shadow-[0_0_40px_rgba(var(--color-accent-channels)/0.25)]">
+		<div
+			class="hidden md:block absolute right-[27%] top-[8%] w-56 h-56 lg:w-60 lg:h-60 rounded-full overflow-hidden border-2 border-accent/30 shadow-[0_0_40px_rgba(var(--color-accent-channels)/0.25)]"
+		>
 			<img
 				src={`/avatar.jpg?v=${Date.now()}`}
 				alt="Ayaan Khan"
 				class="w-full h-full object-cover"
 				style="object-position: center 45%; transform: scale(1.25); transform-origin: center 45%;"
-				onerror={(e) => { (e.currentTarget as HTMLImageElement).style.display='none'; (e.currentTarget as HTMLImageElement).nextElementSibling?.setAttribute('style','display:flex'); }}
+				onerror={(e) => {
+					(e.currentTarget as HTMLImageElement).style.display = 'none';
+					(e.currentTarget as HTMLImageElement).nextElementSibling?.setAttribute(
+						'style',
+						'display:flex'
+					);
+				}}
 			/>
 			<div class="w-full h-full bg-accent/10 items-center justify-center" style="display:none">
 				<span class="font-futura font-bold text-3xl text-accent">AK</span>
 			</div>
-			<span class="absolute bottom-2 right-2 w-4 h-4 rounded-full bg-green-400 border-2 border-background"></span>
+			<span
+				class="absolute bottom-2 right-2 w-4 h-4 rounded-full bg-green-400 border-2 border-background"
+			></span>
 		</div>
 
 		<div class="section-inner mx-auto w-full max-w-5xl px-6 md:px-12 pt-14 pb-28 md:pt-6 md:pb-20">
 			<span class="section-label mb-3 block">Hello</span>
 
-			<h1 class="font-futura text-5xl md:text-6xl lg:text-7xl font-bold mb-2 gradient-text leading-none tracking-tight">
+			<h1
+				class="font-futura text-5xl md:text-6xl lg:text-7xl font-bold mb-2 gradient-text leading-none tracking-tight"
+			>
 				{personalInfo.name}
 			</h1>
 			<p class="text-xl md:text-2xl text-text-primary font-futura font-medium mb-1">
@@ -217,7 +232,9 @@
 				<span class="ml-1">{typeText}</span><span class="animate-pulse text-accent">▍</span>
 			</p>
 			<!-- Open to work badge -->
-			<span class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full border border-green-500/30 bg-green-500/10 text-green-400 text-xs font-mono mb-4">
+			<span
+				class="inline-flex items-center gap-1.5 px-2.5 py-1 rounded-full border border-green-500/30 bg-green-500/10 text-green-400 text-xs font-mono mb-4"
+			>
 				<span class="w-1.5 h-1.5 rounded-full bg-green-400 animate-pulse"></span>
 				open to work
 			</span>
@@ -231,30 +248,54 @@
 				</a>
 				<!-- Chicago live clock -->
 				<span class="flex items-center gap-2 font-mono text-text-muted">
-					<svg viewBox="0 0 24 24" width="16" height="16" fill="none" class="text-accent shrink-0" aria-hidden="true">
+					<svg
+						viewBox="0 0 24 24"
+						width="16"
+						height="16"
+						fill="none"
+						class="text-accent shrink-0"
+						aria-hidden="true"
+					>
 						<circle cx="12" cy="12" r="9.5" stroke="currentColor" stroke-width="1.5" />
 						<!-- Hour hand -->
 						<line
-							x1="12" y1="12" x2="12" y2="7.5"
-							stroke="currentColor" stroke-width="2" stroke-linecap="round"
+							x1="12"
+							y1="12"
+							x2="12"
+							y2="7.5"
+							stroke="currentColor"
+							stroke-width="2"
+							stroke-linecap="round"
 							style="transform-origin: 12px 12px; transform: rotate({hourDeg}deg)"
 						/>
 						<!-- Minute hand -->
 						<line
-							x1="12" y1="12" x2="12" y2="5"
-							stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+							x1="12"
+							y1="12"
+							x2="12"
+							y2="5"
+							stroke="currentColor"
+							stroke-width="1.5"
+							stroke-linecap="round"
 							style="transform-origin: 12px 12px; transform: rotate({minuteDeg}deg)"
 						/>
 						<!-- Second hand -->
 						<line
-							x1="12" y1="13.5" x2="12" y2="4.5"
-							stroke="var(--color-accent-glow)" stroke-width="1" stroke-linecap="round"
+							x1="12"
+							y1="13.5"
+							x2="12"
+							y2="4.5"
+							stroke="var(--color-accent-glow)"
+							stroke-width="1"
+							stroke-linecap="round"
 							style="transform-origin: 12px 12px; transform: rotate({secondDeg}deg)"
 						/>
 						<!-- Center dot -->
 						<circle cx="12" cy="12" r="1.2" fill="currentColor" />
 					</svg>
-					<span class="text-xs tracking-wider">{chicagoTimeStr} <span class="text-text-muted/60">CST</span></span>
+					<span class="text-xs tracking-wider"
+						>{chicagoTimeStr} <span class="text-text-muted/60">CST</span></span
+					>
 				</span>
 			</div>
 
@@ -265,8 +306,18 @@
 					rel="noopener noreferrer"
 					class="link text-text-secondary hover:text-accent flex items-center gap-1.5 group"
 				>
-					<svg class="w-4 h-4 text-accent group-hover:text-accent-glow transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"></path>
+					<svg
+						class="w-4 h-4 text-accent group-hover:text-accent-glow transition-colors"
+						fill="none"
+						stroke="currentColor"
+						viewBox="0 0 24 24"
+					>
+						<path
+							stroke-linecap="round"
+							stroke-linejoin="round"
+							stroke-width="2"
+							d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"
+						></path>
 					</svg>
 					GitHub
 				</a>
@@ -276,9 +327,26 @@
 					rel="noopener noreferrer"
 					class="link text-text-secondary hover:text-accent flex items-center gap-1.5 group"
 				>
-					<svg class="w-4 h-4 text-accent group-hover:text-accent-glow transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"></path>
-						<circle cx="4" cy="4" r="2" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"></circle>
+					<svg
+						class="w-4 h-4 text-accent group-hover:text-accent-glow transition-colors"
+						fill="none"
+						stroke="currentColor"
+						viewBox="0 0 24 24"
+					>
+						<path
+							stroke-linecap="round"
+							stroke-linejoin="round"
+							stroke-width="2"
+							d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6zM2 9h4v12H2z"
+						></path>
+						<circle
+							cx="4"
+							cy="4"
+							r="2"
+							stroke-linecap="round"
+							stroke-linejoin="round"
+							stroke-width="2"
+						></circle>
 					</svg>
 					LinkedIn
 				</a>
@@ -287,14 +355,29 @@
 					target="_blank"
 					class="link text-text-secondary hover:text-accent flex items-center gap-1.5 group"
 				>
-					<svg class="w-4 h-4 text-accent group-hover:text-accent-glow transition-colors" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-						<path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12h6m-6 4h6m2 5H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5.586a1 1 0 0 1 .707.293l5.414 5.414a1 1 0 0 1 .293.707V19a2 2 0 0 1-2 2z"></path>
+					<svg
+						class="w-4 h-4 text-accent group-hover:text-accent-glow transition-colors"
+						fill="none"
+						stroke="currentColor"
+						viewBox="0 0 24 24"
+					>
+						<path
+							stroke-linecap="round"
+							stroke-linejoin="round"
+							stroke-width="2"
+							d="M9 12h6m-6 4h6m2 5H7a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h5.586a1 1 0 0 1 .707.293l5.414 5.414a1 1 0 0 1 .293.707V19a2 2 0 0 1-2 2z"
+						></path>
 					</svg>
 					Resume
 				</a>
 			</div>
 
-			<NowCards watching={nowWatching} building={nowBuilding} using={nowUsing} learning={nowLearning} />
+			<NowCards
+				watching={nowWatching}
+				building={nowBuilding}
+				using={nowUsing}
+				learning={nowLearning}
+			/>
 		</div>
 		<button class="scroll-hint" onclick={() => scrollToSection(1)} aria-label="Next section">
 			<ChevronDown class="w-5 h-5" />
@@ -355,7 +438,11 @@
 	</section>
 
 	<!-- ── 03 · Experience ── -->
-	<section id="experience" class="snap-section scrollable-mobile" class:is-visible={activeIdx === 2}>
+	<section
+		id="experience"
+		class="snap-section scrollable-mobile"
+		class:is-visible={activeIdx === 2}
+	>
 		<div class="section-watermark">03</div>
 		<div class="section-inner mx-auto w-full max-w-5xl px-6 md:px-12 py-10 md:py-0">
 			<span class="section-label">Career</span>
@@ -377,8 +464,8 @@
 										href={exp.link}
 										target="_blank"
 										rel="noopener noreferrer"
-										class="hover:text-accent-glow transition-colors"
-									>{exp.company}</a>
+										class="hover:text-accent-glow transition-colors">{exp.company}</a
+									>
 								{:else}
 									{exp.company}
 								{/if}
@@ -430,13 +517,17 @@
 								{#if project.status}
 									<span class="text-xs text-accent font-mono">·{project.status}</span>
 								{/if}
-								<span class="text-text-muted/40 group-hover:text-accent transition-colors text-xs">↗</span>
+								<span class="text-text-muted/40 group-hover:text-accent transition-colors text-xs"
+									>↗</span
+								>
 							</div>
 						</div>
 						<p class="text-text-secondary text-xs leading-relaxed mb-2 line-clamp-2 flex-1">
 							{project.bullets[0]}
 						</p>
-						<p class="text-xs text-text-muted font-mono border-t border-border/40 pt-1.5 line-clamp-1">
+						<p
+							class="text-xs text-text-muted font-mono border-t border-border/40 pt-1.5 line-clamp-1"
+						>
 							{project.tech}
 						</p>
 					</article>
