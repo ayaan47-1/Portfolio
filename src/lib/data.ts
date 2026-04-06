@@ -167,19 +167,19 @@ export const nowWatching: NowWatching = {
 
 export const nowBuilding: NowBuilding[] = [
 	{
+		name: 'VeritasLayer (deployed)',
+		description:
+			'Evidence-traceable obligations, risk alerts & summaries from operational documents',
+		link: 'https://veritaslayer.net/'
+	},
+	{
 		name: 'Clutch (staging)',
 		description: 'AI course generation platform',
 		link: 'https://staging.clutch.courses/'
 	},
 	{
 		name: 'SyntecAgent (deployed)',
-		description: 'Coding, Classification & Naming Agent'
-	},
-	{
-		name: 'VeritasLayer',
-		description:
-			'Evidence-traceable obligations, risk alerts & summaries from operational documents',
-		link: 'https://veritaslayer.net/'
+		description: 'Coding, Classification & Naming (CRUD) Agent'
 	},
 	{
 		name: 'This site',
@@ -189,7 +189,7 @@ export const nowBuilding: NowBuilding[] = [
 
 export const nowUsing: NowUsing = {
 	hardware: ['MacBook Pro M4 Pro', 'iPhone 17 Pro', 'Samsung Z Fold 7'],
-	software: ['VS Code', 'Claude Code', 'Codex', 'Gemini', 'Ghostty', 'GarageBand']
+	software: ['VS Code', 'Claude', 'Codex', 'Gemini', 'Ghostty']
 };
 
 export const nowLearning = {
