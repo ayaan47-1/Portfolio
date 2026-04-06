@@ -190,7 +190,7 @@
 		<!-- Avatar — floated into the right negative space -->
 		<div class="hidden md:block absolute right-[27%] top-[8%] w-56 h-56 lg:w-60 lg:h-60 rounded-full overflow-hidden border-2 border-accent/30 shadow-[0_0_40px_rgba(var(--color-accent-channels)/0.25)]">
 			<img
-				src="/avatar.jpg"
+				src={`/avatar.jpg?v=${Date.now()}`}
 				alt="Ayaan Khan"
 				class="w-full h-full object-cover"
 				style="object-position: center 45%; transform: scale(1.25); transform-origin: center 45%;"

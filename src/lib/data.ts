@@ -67,6 +67,18 @@ export const projects: Project[] = [
 		tech: 'Flask, OpenAI Function Calling, SQLite, ChromaDB, React, Docker'
 	},
 	{
+		name: 'VeritasLayer',
+		link: 'https://veritaslayer.net/',
+		glowColor: '#f59e0b',
+		status: 'deployed',
+		bullets: [
+			'Built an evidence-traceable document intelligence platform that extracts obligations, risk signals, and structured summaries from operational documents using LLM pipelines with source-level citation.',
+			'Designed a multi-stage ingestion pipeline supporting PDF and structured document formats, with chunking, embedding, and vector indexing for high-recall semantic retrieval.',
+			'Surfaced risk alerts and obligation tracking with traceable provenance — linking every extracted claim back to its source passage for auditability.'
+		],
+		tech: 'FastAPI, LLMs, Vector Search, PDF Ingestion, SvelteKit'
+	},
+	{
 		name: 'Syntec AI Chatbot',
 		link: 'https://build.syntecgroup.com/',
 		glowColor: '#3b82f6',
