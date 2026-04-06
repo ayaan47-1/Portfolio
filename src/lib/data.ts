@@ -147,7 +147,7 @@ export const workExperience: WorkExperience[] = [
 ];
 
 export const nowWatching: NowWatching = {
-	title: 'DTF St. Louis',
+	title: 'House of Cards',
 	year: '2025',
 	type: 'Show',
 	past: ['Industry', 'Silicon Valley', 'Severance', 'Succession']
@@ -166,7 +166,8 @@ export const nowBuilding: NowBuilding[] = [
 	{
 		name: 'VeritasLayer',
 		description:
-			'Evidence-traceable obligations, risk alerts & summaries from operational documents'
+			'Evidence-traceable obligations, risk alerts & summaries from operational documents',
+		link: 'https://veritaslayer.net/'
 	},
 	{
 		name: 'This site',
@@ -177,4 +178,9 @@ export const nowBuilding: NowBuilding[] = [
 export const nowUsing: NowUsing = {
 	hardware: ['MacBook Pro M4 Pro', 'iPhone 17 Pro', 'Samsung Z Fold 7'],
 	software: ['VS Code', 'Claude Code', 'Codex', 'Gemini', 'Ghostty', 'GarageBand']
+};
+
+export const nowLearning = {
+	topic: 'LLM agents',
+	context: 'in financial workflows'
 };

@@ -1,15 +1,16 @@
 <script lang="ts">
-	import type { NowWatching, NowBuilding, NowUsing } from '$lib/types';
+	import type { NowWatching, NowBuilding, NowUsing, NowLearning } from '$lib/types';
 	import SpotifyCard from './SpotifyCard.svelte';
-	import { Zap, Monitor, Clapperboard } from 'lucide-svelte';
+	import { Zap, Monitor, Clapperboard, BookOpen } from 'lucide-svelte';
 
 	interface Props {
 		watching: NowWatching;
 		building: NowBuilding[];
 		using: NowUsing;
+		learning: NowLearning;
 	}
 
-	const { watching, building, using }: Props = $props();
+	const { watching, building, using, learning }: Props = $props();
 </script>
 
 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-3">
@@ -39,28 +40,43 @@
 		</div>
 	</div>
 
-	<!-- Using -->
-	<div class="now-card h-full text-text-primary rounded-xl p-4 backdrop-blur-sm border border-border/40 hover:border-accent/30 transition-all duration-300 group" style="background-color: rgb(var(--color-surface-channels) / 0.6);">
-		<div class="flex items-center gap-2 mb-3">
-			<Monitor class="w-3.5 h-3.5 text-accent group-hover:text-accent-glow transition-colors" />
-			<span class="text-xs font-futura text-text-muted uppercase tracking-widest">Using</span>
-		</div>
+	<!-- Using & Learning -->
+	<div class="flex flex-col gap-3 h-full">
+		<!-- Using -->
+		<div class="now-card flex-1 text-text-primary rounded-xl p-4 backdrop-blur-sm border border-border/40 hover:border-accent/30 transition-all duration-300 group" style="background-color: rgb(var(--color-surface-channels) / 0.6);">
+			<div class="flex items-center gap-2 mb-3">
+				<Monitor class="w-3.5 h-3.5 text-accent group-hover:text-accent-glow transition-colors" />
+				<span class="text-xs font-futura text-text-muted uppercase tracking-widest">Using</span>
+			</div>
 
-		<div class="mb-3">
-			<p class="text-xs font-bold font-futura text-text-secondary uppercase tracking-wider mb-1.5">Hardware</p>
-			<div class="space-y-0.5">
-				{#each using.hardware as item}
-					<p class="text-xs text-text-secondary">{item}</p>
-				{/each}
+			<div class="mb-3">
+				<p class="text-xs font-bold font-futura text-text-secondary uppercase tracking-wider mb-1.5">Hardware</p>
+				<div class="space-y-0.5">
+					{#each using.hardware as item}
+						<p class="text-xs text-text-secondary">{item}</p>
+					{/each}
+				</div>
+			</div>
+
+			<div>
+				<p class="text-xs font-bold font-futura text-text-secondary uppercase tracking-wider mb-1.5">Software</p>
+				<div class="space-y-0.5">
+					{#each using.software as item}
+						<p class="text-xs text-text-secondary">{item}</p>
+					{/each}
+				</div>
 			</div>
 		</div>
 
-		<div>
-			<p class="text-xs font-bold font-futura text-text-secondary uppercase tracking-wider mb-1.5">Software</p>
-			<div class="space-y-0.5">
-				{#each using.software as item}
-					<p class="text-xs text-text-secondary">{item}</p>
-				{/each}
+		<!-- Learning -->
+		<div class="now-card flex-none text-text-primary rounded-xl p-4 backdrop-blur-sm border border-border/40 hover:border-accent/30 transition-all duration-300 group" style="background-color: rgb(var(--color-surface-channels) / 0.6);">
+			<div class="flex items-center gap-2 mb-2">
+				<BookOpen class="w-3.5 h-3.5 text-accent group-hover:text-accent-glow transition-colors" />
+				<span class="text-xs font-futura text-text-muted uppercase tracking-widest">Learning About</span>
+			</div>
+			<div>
+				<p class="text-sm font-medium text-text-primary leading-snug">{learning.topic}</p>
+				<p class="text-xs text-text-muted mt-0.5">{learning.context}</p>
 			</div>
 		</div>
 	</div>

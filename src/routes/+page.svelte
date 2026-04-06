@@ -12,7 +12,8 @@
 		systemsThinking,
 		nowWatching,
 		nowBuilding,
-		nowUsing
+		nowUsing,
+		nowLearning
 	} from '$lib/data';
 
 	const { data } = $props();
@@ -282,7 +283,7 @@
 					LinkedIn
 				</a>
 				<a
-					href="/AyaanKhan_Resume_March26.pdf"
+					href="/AyaanKhan_Resume_April26.pdf"
 					target="_blank"
 					class="link text-text-secondary hover:text-accent flex items-center gap-1.5 group"
 				>
@@ -293,7 +294,7 @@
 				</a>
 			</div>
 
-			<NowCards watching={nowWatching} building={nowBuilding} using={nowUsing} />
+			<NowCards watching={nowWatching} building={nowBuilding} using={nowUsing} learning={nowLearning} />
 		</div>
 		<button class="scroll-hint" onclick={() => scrollToSection(1)} aria-label="Next section">
 			<ChevronDown class="w-5 h-5" />

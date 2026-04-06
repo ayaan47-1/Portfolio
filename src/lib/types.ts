@@ -48,6 +48,11 @@ export interface NowBuilding {
 	link?: string;
 }
 
+export interface NowLearning {
+	topic: string;
+	context: string;
+}
+
 export interface NowUsing {
 	hardware: string[];
 	software: string[];
