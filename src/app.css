@@ -341,4 +341,23 @@
 		0%, 100% { transform: translateX(-50%) translateY(0); }
 		50% { transform: translateX(-50%) translateY(7px); }
 	}
+
+	/* Systems Thinking section — title + subtitle */
+	.systems-text {
+		display: flex;
+		flex-direction: column;
+	}
+
+	.systems-title {
+		font-weight: 500;
+		line-height: 1.4;
+	}
+
+	.systems-subtitle {
+		color: rgba(255, 255, 255, 0.45);
+		font-size: 0.9rem;
+		margin-top: 0.25rem;
+		font-weight: 400;
+		line-height: 1.4;
+	}
 }

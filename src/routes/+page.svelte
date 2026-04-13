@@ -550,11 +550,14 @@
 				{#each systemsThinking as item, i}
 					<li class="flex gap-5 group">
 						<span
-							class="font-mono text-accent-glow font-bold min-w-[2.5rem] text-base group-hover:text-accent transition-colors"
+							class="font-mono text-accent-glow font-bold min-w-[2.5rem] text-base group-hover:text-accent transition-colors pt-0.5"
 						>
 							{String(i + 1).padStart(2, '0')}.
 						</span>
-						<span class="text-text-secondary text-base leading-relaxed">{item}</span>
+						<div class="systems-text">
+							<span class="systems-title text-text-secondary text-base">{item.title}</span>
+							<p class="systems-subtitle">{item.subtitle}</p>
+						</div>
 					</li>
 				{/each}
 			</ol>

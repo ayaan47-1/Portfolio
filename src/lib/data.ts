@@ -4,7 +4,8 @@ import type {
 	WorkExperience,
 	NowWatching,
 	NowBuilding,
-	NowUsing
+	NowUsing,
+	SystemsThinkingItem
 } from './types';
 
 export const personalInfo: PersonalInfo = {
@@ -17,7 +18,7 @@ export const personalInfo: PersonalInfo = {
 	github: 'https://github.com/ayaan47-1',
 	linkedin: 'https://www.linkedin.com/in/ayaanahmedkhan/',
 	aboutMe:
-		"AI engineer building production LLM systems — RAG pipelines, semantic search, multi-agent workflows. Originally from India, based in Chicago. Outside the terminal, I'm an avid football fan (the real kind), play guitar, and spend too much time thinking about music and art. I think good taste is a technical skill.",
+		"AI engineer building production LLM systems — RAG pipelines, semantic search, multi-agent workflows. Originally from New Delhi, based in Chicago. Outside the terminal, I'm an avid football fan (the real kind), play guitar, and spend too much time thinking about music and art. I think good taste is a technical skill.",
 	motivation: '',
 	education: {
 		university: 'Illinois Institute of Technology',
@@ -116,12 +117,31 @@ export const projects: Project[] = [
 	}
 ];
 
-export const systemsThinking: string[] = [
-	'Data ingestion and cleaning',
-	'Retrieval strategy (vector + lexical + rerank)',
-	'Structured outputs + validation',
-	'Latency/cost tradeoffs + caching',
-	'Observability + failure modes'
+export const systemsThinking: SystemsThinkingItem[] = [
+	{
+		title: 'Ingestion & preprocessing',
+		subtitle: 'Clean, chunk, and index messy docs so retrieval starts from ground truth'
+	},
+	{
+		title: 'Hybrid retrieval + reranking',
+		subtitle: 'Vector search alone hallucinates on structured data — combine with lexical matching and rerank'
+	},
+	{
+		title: 'Agentic workflows & guardrails',
+		subtitle: 'Function-calling agents with confirmation gates before anything destructive touches production'
+	},
+	{
+		title: 'Structured outputs & validation',
+		subtitle: "Every LLM response parsed through Pydantic schemas — if it doesn't conform, it doesn't ship"
+	},
+	{
+		title: 'Latency/cost routing',
+		subtitle: 'LiteLLM across models, Redis caching, and fallback LLMs — not every query needs GPT-4o'
+	},
+	{
+		title: 'Observability & failure modes',
+		subtitle: 'Inngest job tracing, eval harnesses — catch breaks before users do'
+	}
 ];
 
 export const workExperience: WorkExperience[] = [

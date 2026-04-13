@@ -57,3 +57,8 @@ export interface NowUsing {
 	hardware: string[];
 	software: string[];
 }
+
+export interface SystemsThinkingItem {
+	title: string;
+	subtitle: string;
+}
