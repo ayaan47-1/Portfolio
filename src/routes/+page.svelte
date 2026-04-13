@@ -351,7 +351,7 @@
 					LinkedIn
 				</a>
 				<a
-					href="/AyaanKhan_Resume_April26.pdf"
+					href="/AyaanKhan_Resume_April2026.pdf"
 					target="_blank"
 					class="link text-text-secondary hover:text-accent flex items-center gap-1.5 group"
 				>
