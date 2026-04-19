@@ -22,8 +22,8 @@
 	let scrollEl = $state<HTMLElement | null>(null);
 	let activeIdx = $state(0);
 
-	const sectionIds = ['home', 'about', 'experience', 'projects', 'systems-thinking', 'communication'];
-	const sectionLabels = ['Home', 'About', 'Work', 'Projects', 'Systems', 'Comm'];
+	const sectionIds = ['home', 'about', 'experience', 'projects', 'communication', 'systems-thinking'];
+	const sectionLabels = ['Home', 'About', 'Work', 'Projects', 'Comm', 'Systems'];
 
 	// Chicago live clock
 	let now = $state(new Date());
@@ -548,42 +548,13 @@
 		</button>
 	</section>
 
-	<!-- ── 05 · Systems Thinking ── -->
-	<section id="systems-thinking" class="snap-section" class:is-visible={activeIdx === 4}>
-		<div class="section-watermark">05</div>
-		<div class="section-inner mx-auto w-full max-w-5xl px-6 md:px-12">
-			<span class="section-label">Mental Model</span>
-			<h2 class="snap-heading mb-8">Systems Thinking</h2>
-
-			<ol class="space-y-4 max-w-2xl">
-				{#each systemsThinking as item, i}
-					<li class="flex gap-5 group">
-						<span
-							class="font-mono text-accent-glow font-bold min-w-[2.5rem] text-base group-hover:text-accent transition-colors pt-0.5"
-						>
-							{String(i + 1).padStart(2, '0')}.
-						</span>
-						<div class="systems-text">
-							<span class="systems-title text-text-secondary text-base">{item.title}</span>
-							<p class="systems-subtitle">{item.subtitle}</p>
-						</div>
-					</li>
-				{/each}
-			</ol>
-
-			<footer class="mt-10 pt-6 border-t border-white/5 text-sm text-text-muted">
-				<p>&copy; {new Date().getFullYear()} {personalInfo.name}</p>
-				<p class="mt-1 font-mono">Built with <span class="text-accent">SvelteKit</span></p>
-			</footer>
-		</div>
-	</section>
-	<!-- ── 06 · Communication ── -->
+	<!-- ── 05 · Communication ── -->
 	<section
 		id="communication"
 		class="snap-section scrollable-mobile"
-		class:is-visible={activeIdx === 5}
+		class:is-visible={activeIdx === 4}
 	>
-		<div class="section-watermark">06</div>
+		<div class="section-watermark">05</div>
 		<div class="section-inner mx-auto w-full max-w-5xl px-6 md:px-12 py-10 md:py-0">
 			<span class="section-label">Portfolio</span>
 			<h2 class="snap-heading mb-2">Communication</h2>
@@ -635,6 +606,39 @@
 					</article>
 				{/each}
 			</div>
+		</div>
+		<button class="scroll-hint" onclick={() => scrollToSection(5)} aria-label="Next section">
+			<ChevronDown class="w-5 h-5" />
+		</button>
+	</section>
+
+	<!-- ── 06 · Systems Thinking ── -->
+	<section id="systems-thinking" class="snap-section" class:is-visible={activeIdx === 5}>
+		<div class="section-watermark">06</div>
+		<div class="section-inner mx-auto w-full max-w-5xl px-6 md:px-12">
+			<span class="section-label">Mental Model</span>
+			<h2 class="snap-heading mb-8">Systems Thinking</h2>
+
+			<ol class="space-y-4 max-w-2xl">
+				{#each systemsThinking as item, i}
+					<li class="flex gap-5 group">
+						<span
+							class="font-mono text-accent-glow font-bold min-w-[2.5rem] text-base group-hover:text-accent transition-colors pt-0.5"
+						>
+							{String(i + 1).padStart(2, '0')}.
+						</span>
+						<div class="systems-text">
+							<span class="systems-title text-text-secondary text-base">{item.title}</span>
+							<p class="systems-subtitle">{item.subtitle}</p>
+						</div>
+					</li>
+				{/each}
+			</ol>
+
+			<footer class="mt-10 pt-6 border-t border-white/5 text-sm text-text-muted">
+				<p>&copy; {new Date().getFullYear()} {personalInfo.name}</p>
+				<p class="mt-1 font-mono">Built with <span class="text-accent">SvelteKit</span></p>
+			</footer>
 		</div>
 	</section>
 </div>
