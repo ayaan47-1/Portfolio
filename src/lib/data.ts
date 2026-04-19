@@ -218,8 +218,8 @@ export const nowUsing: NowUsing = {
 };
 
 export const nowLearning = {
-	topic: 'LLM agents',
-	context: 'in financial workflows'
+	topic: 'Agentic workflows',
+	context: 'in construction and real estate.'
 };
 
 export const commSamples: CommSample[] = [
