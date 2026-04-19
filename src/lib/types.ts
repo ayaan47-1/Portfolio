@@ -7,6 +7,8 @@ export interface PersonalInfo {
 	github: string;
 	linkedin: string;
 	aboutMe: string;
+	goals?: string;
+	commApproach?: string;
 	motivation?: string;
 	education?: {
 		university: string;
@@ -61,4 +63,12 @@ export interface NowUsing {
 export interface SystemsThinkingItem {
 	title: string;
 	subtitle: string;
+}
+
+export interface CommSample {
+	title: string;
+	type: string; // e.g. 'Poster', 'Slide Deck', 'Research Paper', 'Volunteer Campaign'
+	audience: string;
+	description: string; // 2-3 sentences
+	link?: string;
 }
