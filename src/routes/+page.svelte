@@ -13,8 +13,7 @@
 		nowWatching,
 		nowBuilding,
 		nowUsing,
-		nowLearning,
-		commSamples
+		nowLearning
 	} from '$lib/data';
 
 	const { data } = $props();
@@ -22,8 +21,8 @@
 	let scrollEl = $state<HTMLElement | null>(null);
 	let activeIdx = $state(0);
 
-	const sectionIds = ['home', 'about', 'experience', 'projects', 'communication', 'systems-thinking'];
-	const sectionLabels = ['Home', 'About', 'Work', 'Projects', 'Comm', 'Systems'];
+	const sectionIds = ['home', 'about', 'experience', 'projects', 'systems-thinking'];
+	const sectionLabels = ['Home', 'About', 'Work', 'Projects', 'Systems'];
 
 	// Chicago live clock
 	let now = $state(new Date());
@@ -548,73 +547,9 @@
 		</button>
 	</section>
 
-	<!-- ── 05 · Communication ── -->
-	<section
-		id="communication"
-		class="snap-section scrollable-mobile"
-		class:is-visible={activeIdx === 4}
-	>
+	<!-- ── 05 · Systems Thinking ── -->
+	<section id="systems-thinking" class="snap-section" class:is-visible={activeIdx === 4}>
 		<div class="section-watermark">05</div>
-		<div class="section-inner mx-auto w-full max-w-5xl px-6 md:px-12 py-10 md:py-0">
-			<span class="section-label">Portfolio</span>
-			<h2 class="snap-heading mb-2">Communication</h2>
-
-			<!-- Approach paragraph -->
-			{#if personalInfo.commApproach}
-				<div class="mb-7">
-					<h3 class="font-futura text-sm font-bold text-accent uppercase tracking-widest mb-2">
-						My Approach to Technical Communication
-					</h3>
-					<p class="text-sm text-text-secondary leading-relaxed max-w-3xl">
-						{personalInfo.commApproach}
-					</p>
-				</div>
-			{/if}
-
-			<!-- Sample cards -->
-			<div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
-				{#each commSamples as sample, i}
-					<article
-						class="card-glow rounded-lg p-4 backdrop-blur-sm flex flex-col gap-2"
-						style="background-color: rgb(var(--color-surface-channels) / 0.8);"
-					>
-						<div class="flex items-start justify-between gap-2">
-							<div>
-								<span class="font-mono text-xs text-accent-glow">
-									{String(i + 1).padStart(2, '0')} · {sample.type}
-								</span>
-								<h3
-									class="font-futura text-sm font-semibold text-text-primary mt-0.5 leading-tight"
-								>
-									{sample.title}
-								</h3>
-							</div>
-							{#if sample.link}
-								<a
-									href={sample.link}
-									target="_blank"
-									rel="noopener noreferrer"
-									class="shrink-0 text-text-muted/40 hover:text-accent transition-colors text-xs mt-1"
-									aria-label="View {sample.title}"
-								>↗</a>
-							{/if}
-						</div>
-						<p class="text-xs text-text-muted font-mono">
-							Audience: <span class="text-text-secondary">{sample.audience}</span>
-						</p>
-						<p class="text-xs text-text-secondary leading-relaxed">{sample.description}</p>
-					</article>
-				{/each}
-			</div>
-		</div>
-		<button class="scroll-hint" onclick={() => scrollToSection(5)} aria-label="Next section">
-			<ChevronDown class="w-5 h-5" />
-		</button>
-	</section>
-
-	<!-- ── 06 · Systems Thinking ── -->
-	<section id="systems-thinking" class="snap-section" class:is-visible={activeIdx === 5}>
-		<div class="section-watermark">06</div>
 		<div class="section-inner mx-auto w-full max-w-5xl px-6 md:px-12">
 			<span class="section-label">Mental Model</span>
 			<h2 class="snap-heading mb-8">Systems Thinking</h2>

@@ -5,8 +5,7 @@ import type {
 	NowWatching,
 	NowBuilding,
 	NowUsing,
-	SystemsThinkingItem,
-	CommSample
+	SystemsThinkingItem
 } from './types';
 
 export const personalInfo: PersonalInfo = {
@@ -22,8 +21,6 @@ export const personalInfo: PersonalInfo = {
 		"AI engineer building production LLM systems — RAG pipelines, semantic search, multi-agent workflows. Originally from New Delhi, based in Chicago. Outside the terminal, I'm an avid football fan (the real kind), play guitar, and spend too much time thinking about music and art. I think good taste is a technical skill.",
 	goals:
 		'After graduation in May 2026, I want to join a team where I can ship AI systems that actually matter — whether that is at a fast-moving startup or a company building infrastructure for the next wave of intelligent software. Longer term, I want to build products of my own at the intersection of AI and systems design, and eventually contribute to research that makes LLM pipelines more reliable and interpretable.',
-	commApproach:
-		"Technical work only matters if others can act on it. My approach: meet the audience where they are — precise specs for engineers, concrete outcomes for stakeholders. A confusing interface is a communication failure. In AI especially, closing the gap between what a model does and what people think it does is one of the highest-value skills on a team.",
 	motivation: '',
 	education: {
 		university: 'Illinois Institute of Technology',
@@ -221,34 +218,3 @@ export const nowLearning = {
 	topic: 'Agentic workflows',
 	context: 'in construction and real estate.'
 };
-
-export const commSamples: CommSample[] = [
-	{
-		title: 'IPRO Innovation Day — Research Poster',
-		type: 'Academic Poster',
-		audience: 'Faculty, industry judges & peers',
-		description:
-			"Sole designer of this poster for Illinois Tech's IPRO Innovation Day. The format demands compression — every word earns its place — and the mixed audience of faculty and industry judges forced me to layer technical depth with accessible framing. Fielding live questions sharpened my ability to adapt on the fly."
-	},
-	{
-		title: 'Volunteers.Covihelp — Crisis Communication Campaign',
-		type: 'Public Awareness & Operations',
-		audience: 'General public, patients & families across India',
-		description:
-			"Co-founded a volunteer helpline during India's second COVID wave, writing outreach and coordination copy under real pressure. High-stakes, time-sensitive, directed at people in distress — clarity and empathy couldn't be traded off. Taught me that good communication removes friction for the reader, not credit for the writer."
-	},
-	{
-		title: 'SyntecAgent — Technical Documentation & Stakeholder Handoff',
-		type: 'Technical Write-up',
-		audience: 'Engineering team & non-technical stakeholders at The Syntec Group',
-		description:
-			"Delivered SyntecAgent with docs written for two audiences simultaneously: developers maintaining the code and managers approving its use. Modularizing the document into clearly separated layers — rather than blending jargon with prose — made both versions sharper. Good technical writing is information architecture."
-	},
-	{
-		title: 'Clutch — Pitch Deck & Product Narrative',
-		type: 'Slide Deck',
-		audience: 'Potential users, collaborators & early investors',
-		description:
-			"Pitching Clutch meant arguing why the product should exist to people with no reason to care yet. I led with the problem, not the tech — a deliberate choice that respects the audience's skepticism. Compressing a multi-stage AI pipeline into one compelling page made me a sharper communicator across every medium."
-	}
-];

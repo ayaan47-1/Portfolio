@@ -37,7 +37,6 @@
 		{ id: 'about', label: 'About' },
 		{ id: 'experience', label: 'Work' },
 		{ id: 'projects', label: 'Projects' },
-		{ id: 'communication', label: 'Comm' },
 		{ id: 'systems-thinking', label: 'Systems' }
 	];
 </script>
